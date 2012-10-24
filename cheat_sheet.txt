@@ -63,6 +63,11 @@ Push to a Remote Repository
 git remote add origin https://github.com/gnperdue/GitTutorial.git  # Example path, of course!
 git push -u origin master
 
+Examine a Remote Repository
+---------------------------
+git remote                        # Show a list of existing remote
+git remove -v                     # Also, --verbose, show more about the existing remotes.
+
 Create a Tree Object from the Current Index
 -------------------------------------------                           
 git write-tree  
