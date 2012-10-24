@@ -58,6 +58,11 @@ git commit --ammend               # Change the top commit
 git cherry-pick {commit}          # Bring a single commit from another branch into your working branch.
 git revert {commit}               # "Remove" a given commit from earlier in your branch. (Actually, add the inverse.)
 
+Push to a Remote Repository
+---------------------------
+git remote add origin https://github.com/gnperdue/GitTutorial.git  # Example path, of course!
+git push -u origin master
+
 Create a Tree Object from the Current Index
 -------------------------------------------                           
 git write-tree  
