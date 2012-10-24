@@ -1,0 +1,183 @@
+References
+~~~~~~~~~~
+      git: http://git-scm.com/about
+      git: http://git-scm.com/book
+      git: http://www.github.com
+ git-flow: http://nvie.com/posts/a-successful-git-branching-model/
+
+Get Help
+========
+git --help
+git --help {command}
+
+.gitignore:
+1) Blank lines are ignored, and a pound sign (#) can be used for comments.
+2) A simple, literal filename matches a file in any directory with that name.
+3) A directory name is marked by a trailing slash character, like so/
+4) A pattern containing shell glob characters (*) is expanded as a shell glob 
+   pattern, e.g. debug/32bit/*.o
+5) An initial ! inverts the pattern over the line.
+6) You may have a gitignore in any directoy in the repository, and files in lower 
+   directories override higher directories.
+
+Configure Git
+-------------
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global core.editor vim               # Or emacs, etc.
+
+Check Your Configuration
+------------------------
+git config -l
+
+Create an Alias
+---------------
+git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
+--> Now: git show-graph
+
+Start a Repository
+------------------
+git init                          # Perform in the directory you wish to be the root.
+
+Add to a Repository
+-------------------
+git add {files}                   # e.g., "git add ." after "git init". Must commit to fully make the change.
+git add {files}                   # Also use this to "re-add" after clearing conflicts in a merge!
+
+Remove from a Repository
+------------------------
+git rm {file}                     # Also removes the file. Must commit to fully make the change.
+git rm --cached {files}           # Staged only.
+
+Commit to a Repository
+----------------------
+git commit -a                     # Commit all, also "--all"
+git commit {file}
+git commit -m "Message" {file}
+git commit --ammend               # Change the top commit 
+git cherry-pick {commit}          # Bring a single commit from another branch into your working branch.
+git revert {commit}               # "Remove" a given commit from earlier in your branch. (Actually, add the inverse.)
+
+Create a Tree Object from the Current Index
+-------------------------------------------                           
+git write-tree  
+
+Examine a Repository
+--------------------
+git show                          # Examine various objects.
+gitk                              # Woah.
+git status
+git log                           # Show the *reachable* commits.
+git log --graph --abbrev-commit --pretty=oneline
+git ls-files -s
+git ls-files --stage
+git log -S{string}                # "Pickaxe" - search file diff history.
+git log --merge --left-right -p
+git reflog                        # Look at the commit history...
+
+Examine a Commit
+----------------
+git show {sha1}                   # May use the first N significant numbers, where N is sufficient for disambiguation.
+git show --pretty=fuller
+git rev-parse {sha1}
+
+Refer to Commits Relatively
+---------------------------
+Relative Commit Names
+^ the penultimate commit (e.g., master^, master^^, etc.)
+~ the previous commit in the ancestry chain.
+git log --pretty=short --abbrev-commit master~4..master~2   # Since..Until - used for commit ranges.
+
+Examine a Symbolic Ref
+----------------------
+git symbolic-ref HEAD
+
+Look at the Content of a File
+-----------------------------
+git cat-file -p {sha1}
+
+Create a Tag
+------------
+git tag -m "Message" {tag name} {files}
+
+Assign Blame
+------------
+git blame {file}
+git blame -L {first line},{last line} {file}      # Blame over a range.
+
+Listing the Branches in the Repository
+--------------------------------------
+git branch                                # Topic branches
+git branch -r                             # Remote branches
+git branch -a                             # Topic and remote branches
+
+Examine a Branch
+----------------
+git show-branch                   # Shows head?
+git show-branch --more=N          # Goes N deep.
+
+Find a Branch Starting Point
+----------------------------
+git merge-base {original branch} {dev branch}
+
+Create a Branch
+---------------
+git branch {name*} {starting commit - default HEAD}   # Does not switch to the branch! (*wildcard support)
+git checkout -b {name}                                # Create a branch and switch to it.
+
+Switch into a Branch
+--------------------
+git checkout {new branch}       # git checkout -b {branch} == git branch {branch} ; git checkout {branch}
+
+Merging into a Branch
+---------------------
+git checkout -m {branch}          # Bring uncommitted changes with you. Watch for merge conflict indicators!
+git merge {branch}                # Remember, you need to be on the branch you want changes merged into.
+git reset --hard HEAD             # Abort a merge and go back to the state right before we typed "merge". Careful with dirty repos.
+git reset --hard ORIG_HEAD        # Abort a merge and go back to right before we typed merge after the merge is complete.
+git merge -s {strategy} {branch}  # Careful!
+
+Deleting a Branch
+-----------------
+git branch -d {branch}            # You cannot delete the current branch. You can override safety checks with "-D".
+
+Cleanup Unnecessary Files
+-------------------------
+git gc
+
+Taking Diff's
+-------------
+git diff                            # Difference between the working directory and the index.
+git diff {commit}                   # Difference between the working directory and the given commit.
+git diff --cached {commit}          # Difference between staged changes and a given commit.
+git diff {commit1} {commit2}        # Difference between two commits.
+git diff --M                        # Detects renames and generates a simplified output.
+git diff -w {or --ignore-all-space} # Do not consider whitespace changes to be significant.
+git diff --stat                     # Add statistics.
+git diff --color                    # Colorize the output.
+
+Change to a Specific State
+--------------------------
+git reset HEAD                      # Unstage changes, restore.
+git reset HEAD^                     # Unstage changes, restore to commit just before HEAD. (Remove the topmost commit, often 
+                                    # explicity "--mixed".)
+git reset --soft {commit}           # Go back to {commit}, but leave index and working directory contents unchanged.
+git reset --soft HEAD^              # Get another shot at the commit message only ("git commit --amend" is better).
+git reset --mixed {commit}          # Point HEAD to {commit}, modify index contents, but leave working directory unchanged. 
+                                    # Mixed is default!
+git reset --hard {commit}           # Point HEAD to {commit}, modify index contents and working directory.
+
+Alter Where a Series of Commits is Based
+----------------------------------------
+git rebase {branch}
+git rebase -i master~3              # Interacive rebase (whoah!) going back 3 commits.
+
+Stash Work
+----------
+git stash save "message"            # Put everything into a quick stash and get a clean working area. ("Interrupted Work")
+git stash pop                       # Restore (& drop) a stashed state. Git will attempt a merge. (Can only pop into a "clean" area.)
+git show-branch stash               # "Look" at the stash.
+git stash apply                     # Restore the stash but don't drop it from the index.
+git stash drop                      # Drop the stash (so, "pop = apply (followed by) drop".
+
+
