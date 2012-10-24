@@ -68,6 +68,8 @@ Examine a Remote Repository
 ---------------------------
 git remote                        # Show a list of existing remote
 git remove -v                     # Also, --verbose, show more about the existing remotes.
+git remote show origin
+git remote rm {reference}         # Drop a remote.
 
 Fetch Data from a Remote Repository
 -----------------------------------
@@ -113,6 +115,7 @@ git cat-file -p {sha1}
 
 Create a Tag
 ------------
+git tag                                   # List available tags.
 git tag -m "Message" {tag name} {files}
 
 Assign Blame
