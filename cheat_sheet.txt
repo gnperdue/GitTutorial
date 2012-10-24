@@ -39,10 +39,11 @@ Start a Repository
 ------------------
 git init                          # Perform in the directory you wish to be the root.
 
-Add to a Repository
--------------------
+Add (Stage) to a Repository
+---------------------------
 git add {files}                   # e.g., "git add ." after "git init". Must commit to fully make the change.
 git add {files}                   # Also use this to "re-add" after clearing conflicts in a merge!
+                                  # Note, once a file is tracked, "git add {file}; git commit" == "git commit -a"
 
 Remove from a Repository
 ------------------------
@@ -67,6 +68,10 @@ Examine a Remote Repository
 ---------------------------
 git remote                        # Show a list of existing remote
 git remove -v                     # Also, --verbose, show more about the existing remotes.
+
+Fetch Data from a Remote Repository
+-----------------------------------
+get fetch {repository}            # Find the repository name with "git remote".
 
 Create a Tree Object from the Current Index
 -------------------------------------------                           
