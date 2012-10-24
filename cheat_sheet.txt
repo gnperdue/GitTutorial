@@ -116,6 +116,9 @@ git cat-file -p {sha1}
 Create a Tag
 ------------
 git tag                                   # List available tags.
+git tag -l 'v1.2.*'                       # List only the tags beginning with v1.2.{wildcard}.
+git tag -a {tag name}                     # Make an annotated tag.
+git tag -s {tag name}                     # Make a signed tag (with GPG credentials).
 git tag -m "Message" {tag name} {files}
 
 Assign Blame
