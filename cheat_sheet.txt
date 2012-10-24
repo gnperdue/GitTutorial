@@ -120,6 +120,7 @@ git tag -l 'v1.2.*'                       # List only the tags beginning with v1
 git tag -a {tag name}                     # Make an annotated tag.
 git tag -s {tag name}                     # Make a signed tag (with GPG credentials).
 git tag -m "Message" {tag name} {files}
+git push origin {tag}                     # Apply a tag to the remote server.
 
 Assign Blame
 ------------
