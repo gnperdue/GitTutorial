@@ -84,6 +84,7 @@ git fetch {repository}            # Find the repository name with "git remote". 
 Pull Data from a Remote Repository
 ----------------------------------
 git pull {repository}             # Fetch *and* merge.
+
 Create a Tree Object from the Current Index
 -------------------------------------------                           
 git write-tree  
