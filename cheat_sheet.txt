@@ -78,8 +78,12 @@ git remote rm {reference}         # Drop a remote.
 
 Fetch Data from a Remote Repository
 -----------------------------------
-get fetch {repository}            # Find the repository name with "git remote".
+git fetch {repository}            # Find the repository name with "git remote". This just gets the data. It does not merge!
+                                  # Follow with "git merge" - e.g. "git fetch origin" followed by "git merge origin"
 
+Pull Data from a Remote Repository
+----------------------------------
+git pull {repository}             # Fetch *and* merge.
 Create a Tree Object from the Current Index
 -------------------------------------------                           
 git write-tree  
