@@ -12,4 +12,18 @@ Implementation at FNAL (based on presention by A. Lyon for git at g-2):
 
 Git-Flow Wrapper Script: Simplify all the steps to enforce the development philosophy.
 
+git flow feature start {newFeature}
+git flow feature publish
+... Work ...
+git flow feature finish
+git push orign develop
+
+git flow feature track {newFeature}
+
+git flow release start v9_3_8
+... Bump the verson number ...
+git commit -a -m 'Bump to version v9_3_8'
+git flow release finish
+git push --all ; git push --tags
+
 
