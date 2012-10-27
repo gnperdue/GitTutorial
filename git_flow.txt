@@ -1,0 +1,11 @@
+References
+~~~~~~~~~~
+ git-flow: http://nvie.com/posts/a-successful-git-branching-model/
+
+Implementation at FNAL:
+1) The default branch is master. This is the branch used for official releases and developers 
+   should not commit directly to master. Everything in master needs to work!
+2) The develop branch is the latest release candidate. Ideally, everything in develop works, 
+   but sometimes it won't. Developers should not commit directly to develop either.
+3) Users create feature branches to work on specific features of the code. Feature branches may
+   be published and other developers can track each other's feature branches.
