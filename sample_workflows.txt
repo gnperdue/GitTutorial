@@ -24,6 +24,7 @@ git push -u origin master         # Push the changes to the remote server.
 
 git status                        # Check out the situation.
 git checkout dev                  # Make sure we're on the right branch.
+git remote show origin            # Look at the remote status, make sure we're tracking master and dev.
 git stash save "Just in case."    # Just in case...
 git pull origin dev               # Sync with other commits from the team from yesterday.
 git stash drop                    # Assuming no conflicts.
