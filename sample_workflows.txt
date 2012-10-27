@@ -1,4 +1,13 @@
 
+- Arrive in the office and work on your main analysis tool.
+-----------------------------------------------------------
+
+git status                        # Check that we're on the master branch.
+git add newfile1.cxx              # Add a new file.
+git mv oldfile.h newfile.h        # Rename a file.
+git commit -a                     # Put all the changes in the repository.
+git push -u origin master         # Push the changes to the remote server.
+
 - Arrive in the office and begin work on a shared repository on the dev branch.
 -------------------------------------------------------------------------------
 
