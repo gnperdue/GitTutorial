@@ -1,3 +1,14 @@
+- You want to get started on a new project in a new repository.
+---------------------------------------------------------------
+
+Contact a software manager to have a blank repository created.
+
+git clone ssh://p-{new project}@cdcvs.fnal.gov/cvs/projects/{new project}
+cd {new project}
+cp -r {existing source} .
+git add .
+git commit
+git push origin master
 
 - Arrive in the office and work on your main analysis tool.
 -----------------------------------------------------------
