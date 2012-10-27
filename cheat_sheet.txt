@@ -93,8 +93,8 @@ git write-tree
 Examine a Repository
 --------------------
 git show                          # Examine various objects.
-gitk                              # Woah.
-git status
+gitk                              # Woah. Graphical representation of the repository.
+git status                        # What is staged and not, what branch are you on, how far is the local ahead of the remote, etc.
 git log                           # Show the *reachable* commits.
 git log --graph --abbrev-commit --pretty=oneline
 git ls-files -s

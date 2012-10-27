@@ -1,0 +1,47 @@
+- You want to get started on a new project in a new repository.
+---------------------------------------------------------------
+
+Contact a software manager to have a blank repository created.
+
+git clone ssh://p-{new project}@cdcvs.fnal.gov/cvs/projects/{new project}
+cd {new project}
+cp -r {existing source} .
+git add .
+git commit
+git push origin master
+
+- Arrive in the office and work on your main analysis tool.
+-----------------------------------------------------------
+
+git status                        # Check that we're on the master branch.
+git add newfile1.cxx              # Add a new file.
+git mv oldfile.h newfile.h        # Rename a file.
+git commit -a                     # Put all the changes in the repository.
+git push -u origin master         # Push the changes to the remote server.
+
+- Arrive in the office and begin work on a shared repository on the dev branch.
+-------------------------------------------------------------------------------
+
+git status                        # Check out the situation.
+git checkout dev                  # Make sure we're on the right branch.
+git remote show origin            # Look at the remote status, make sure we're tracking master and dev.
+git stash save "Just in case."    # Just in case...
+git pull origin dev               # Sync with other commits from the team from yesterday.
+git stash drop                    # Assuming no conflicts.
+    ...                           # Do some work.
+git add newfile.cxx               # Stage a new file.
+git commit -a                     # Add all the new code.
+git push origin dev               # Publish to the remote 
+
+- Arrive in the office and work on a side project in your main analysis tool.
+-----------------------------------------------------------------------------
+
+git status                        # See how things are.
+git checkout -b newfeature        # Make a new feature branch.
+    ...                           # Do some work.
+git push origin newfeature        # Put the new feature branch into the remote repository.
+git checkout master               # Move back onto the master branch.
+git merge newfeature              # Pull in the new feature.
+git push origin master            # Push the master branch back onto the remote server.
+
+
