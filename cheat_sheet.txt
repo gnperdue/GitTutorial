@@ -75,7 +75,7 @@ git remote                        # Show a list of existing remote
 git remote -v                     # Also, --verbose, show more about the existing remotes.
 git remote show origin
 git remote rm {reference}         # Drop a remote.
-git remote rename {branchold} {branchnew}
+git remote rename {old branch} {new branch}
 
 Fetch Data from a Remote Repository
 -----------------------------------
@@ -156,7 +156,8 @@ git merge-base {original branch} {dev branch}
 Create a Branch
 ---------------
 git branch {name*} {starting commit - default HEAD}   # Does not switch to the branch! (*wildcard support)
-git checkout -b {name}                                # Create a branch and switch to it.
+git checkout -b {name}                                # Create a branch and switch to it. This is short-hand for 
+                                                      # "git branch {name}; git checkout {name}"
 
 Switch into a Branch
 --------------------
@@ -173,6 +174,11 @@ git merge -s {strategy} {branch}  # Careful!
 Deleting a Branch
 -----------------
 git branch -d {branch}            # You cannot delete the current branch. You can override safety checks with "-D".
+
+Tracking a Remote Branch
+------------------------
+git checkout --track origin/{branch}
+git checkout -b {new name} origin/{branch}
 
 Cleanup Unnecessary Files
 -------------------------
