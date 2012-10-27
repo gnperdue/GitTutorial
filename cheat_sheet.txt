@@ -72,9 +72,10 @@ git push -u origin master
 Examine a Remote Repository
 ---------------------------
 git remote                        # Show a list of existing remote
-git remove -v                     # Also, --verbose, show more about the existing remotes.
+git remote -v                     # Also, --verbose, show more about the existing remotes.
 git remote show origin
 git remote rm {reference}         # Drop a remote.
+git remote rename {branchold} {branchnew}
 
 Fetch Data from a Remote Repository
 -----------------------------------
