@@ -208,7 +208,7 @@ git reset --hard {commit}           # Point HEAD to {commit}, modify index conte
 
 Alter Where a Series of Commits is Based
 ----------------------------------------
-git rebase {branch}
+git rebase {branch}                 # DON'T rebase commits you have pushed to a public repository!
 git rebase -i master~3              # Interacive rebase (whoah!) going back 3 commits.
 
 Stash Work
