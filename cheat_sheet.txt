@@ -7,8 +7,8 @@ References
 
 Get Help
 ========
-git --help
-git --help {command}
+git help            # Also, "git --help {}".
+git help {command}
 
 .gitignore:
 1) Blank lines are ignored, and a pound sign (#) can be used for comments.
