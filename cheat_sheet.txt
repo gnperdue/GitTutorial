@@ -218,5 +218,6 @@ git stash pop                       # Restore (& drop) a stashed state. Git will
 git show-branch stash               # "Look" at the stash.
 git stash apply                     # Restore the stash but don't drop it from the index.
 git stash drop                      # Drop the stash (so, "pop = apply (followed by) drop".
+git stash branch                    # Convert the stash into a new branch based on the commit at the time the stash was stashed.
 
 
