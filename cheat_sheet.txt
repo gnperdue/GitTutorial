@@ -52,6 +52,7 @@ git rm --cached {files}           # Staged only.
 
 Commit to a Repository
 ----------------------
+git commit --dry-run              # Don't actually perform the commit, just show what *would* have happened.
 git commit -a                     # Commit all, also "--all"
 git commit {file}
 git commit -m "Message" {file}
@@ -81,6 +82,7 @@ Fetch Data from a Remote Repository
 -----------------------------------
 git fetch {repository}            # Find the repository name with "git remote". This just gets the data. It does not merge!
                                   # Follow with "git merge" - e.g. "git fetch origin" followed by "git merge origin"
+git fetch --dry-run               # Don't perform a fetch, just show what *would* have happened.
 
 Pull Data from a Remote Repository
 ----------------------------------
@@ -219,5 +221,9 @@ git show-branch stash               # "Look" at the stash.
 git stash apply                     # Restore the stash but don't drop it from the index.
 git stash drop                      # Drop the stash (so, "pop = apply (followed by) drop".
 git stash branch                    # Convert the stash into a new branch based on the commit at the time the stash was stashed.
+git stash show                      # List the stashes (that haven't been dropped), stash@{1} is older than stash@{0}.
+git stash save "message" --include-untracked
+git stash save "message" --all      # Including those excluded by .gitignore.
+
 
 
