@@ -10,7 +10,12 @@ Get Help
 git help            # Also, "git --help {}".
 git help {command}
 
-.gitignore:
+Get the (C) Source Code
+-----------------------
+git clone git://github.com/gitster/git.git
+
+.gitignore
+----------
 1) Blank lines are ignored, and a pound sign (#) can be used for comments.
 2) A simple, literal filename matches a file in any directory with that name.
 3) A directory name is marked by a trailing slash character, like so/
@@ -44,6 +49,7 @@ Add (Stage) to a Repository
 git add {files}                   # e.g., "git add ." after "git init". Must commit to fully make the change.
 git add {files}                   # Also use this to "re-add" after clearing conflicts in a merge!
                                   # Note, once a file is tracked, "git add {file}; git commit" == "git commit -a"
+git add -u                        # Add to the index all the changes of files already tracked.
 
 Remove from a Repository
 ------------------------
@@ -59,6 +65,12 @@ git commit -m "Message" {file}
 git commit --ammend               # Change the top commit 
 git cherry-pick {commit}          # Bring a single commit from another branch into your working branch.
 git revert {commit}               # "Remove" a given commit from earlier in your branch. (Actually, add the inverse.)
+
+Restore a Commit
+----------------
+git checkout {SHA1 hash}          # You only need enough of the hash to make the ID unique in the repository.
+git checkout {tag}                # Restore to a {tag}.
+git checkout master               # The master "tag" refers to the last commit.
 
 Clone a Remote Repository
 -------------------------
@@ -158,7 +170,8 @@ git merge-base {original branch} {dev branch}
 Create a Branch
 ---------------
 git branch {name*} {starting commit - default HEAD}   # Does not switch to the branch! (*wildcard support)
-git checkout -b {name}                                # Create a branch and switch to it. This is short-hand for 
+get checkout {name}                                   # Switch to the branch.
+git checkout -b {name}                                # Create a branch *and* switch to it. This is short-hand for 
                                                       # "git branch {name}; git checkout {name}"
 
 Switch into a Branch
@@ -184,7 +197,7 @@ git checkout -b {new name} origin/{branch}
 
 Cleanup Unnecessary Files
 -------------------------
-git gc
+git gc                              # Often will compress snapshots into diffs (happens periodically automatically).
 
 Taking Diff's
 -------------
