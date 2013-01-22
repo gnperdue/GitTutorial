@@ -189,6 +189,7 @@ git merge -s {strategy} {branch}  # Careful!
 Deleting a Branch
 -----------------
 git branch -d {branch}            # You cannot delete the current branch. You can override safety checks with "-D".
+git push origin --delete {branch} # Delete the remote branch.
 
 Tracking a Remote Branch
 ------------------------
