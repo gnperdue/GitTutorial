@@ -72,6 +72,12 @@ git checkout {SHA1 hash}          # You only need enough of the hash to make the
 git checkout {tag}                # Restore to a {tag}.
 git checkout master               # The master "tag" refers to the last commit.
 
+Recover a File
+--------------
+git checkout {file}
+git checkout {SHA1 hash} {file}           # Get back a specific version.
+git ls-files -d | xargs git checkout --   # Get all accidently removed files.
+
 Clone a Remote Repository
 -------------------------
 git clone git://github.com/gnperdue/GitTutorial.git
