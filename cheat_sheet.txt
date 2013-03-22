@@ -152,6 +152,9 @@ git tag -a {tag name}                     # Make an annotated tag.
 git tag -s {tag name}                     # Make a signed tag (with GPG credentials).
 git tag -m "Message" {tag name} {files}
 git push origin {tag}                     # Apply a tag to the remote server.
+git tag -d {tag name}                     # Delete a tag.
+git push origin :{tag name}               # Apply deleted tag to the remote server.
+git show {tag name}
 
 Assign Blame
 ------------
