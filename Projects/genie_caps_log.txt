@@ -32,5 +32,51 @@ e22c4fe HEAD@{2}: commit: Clean up introduction and add emphasis on two-person r
 0b6902e HEAD@{3}: commit: Ignore LaTeX detritus and final product pdf.
 8756267 HEAD@{4}: commit (initial): Initial commit of GENIE capabilities doc.
 
+GENIECapabilities$ git checkout -b add_physics_goals
+Switched to a new branch 'add_physics_goals'
+
+GENIECapabilities$ git status
+# On branch add_physics_goals
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   gc_new_generator_challenges.tex
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+GENIECapabilities$ git commit -a
+[add_physics_goals c4c9418] Cleanup and try to change the tone a bit - want to emphasize we aren't interested in authoring a new generator!
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+GENIECapabilities$ git reflog
+c4c9418 HEAD@{0}: commit: Cleanup and try to change the tone a bit - want to emphasi
+957faaa HEAD@{1}: checkout: moving from master to add_physics_goals
+957faaa HEAD@{2}: commit: Cleanup.
+c4b8dd9 HEAD@{3}: commit: Cleanup and remove paragraph about investing in physics fi
+e22c4fe HEAD@{4}: commit: Clean up introduction and add emphasis on two-person role 
+0b6902e HEAD@{5}: commit: Ignore LaTeX detritus and final product pdf.
+8756267 HEAD@{6}: commit (initial): Initial commit of GENIE capabilities doc.
+
+GENIECapabilities$ git commit -a
+[add_physics_goals 1dcbde8] Add more physics needs, including some experiment specific blocks.
+ 1 file changed, 55 insertions(+), 10 deletions(-)
+GENIECapabilities$ git status
+# On branch add_physics_goals
+nothing to commit (working directory clean)
+GENIECapabilities$ git checkout master
+Switched to branch 'master'
+GENIECapabilities$ git merge add_physics_goals
+Updating 957faaa..1dcbde8
+Fast-forward
+ .gitignore                      |   1 +
+ GENIECapabilities.bib           |  53 ++++++++++++++++++++++-
+ GENIECapabilities.tex           |   3 ++
+ gc_fnal_contrib.tex             | 101 +++++++++++++++++++++++++++++++++++++++++---
+ gc_new_generator_challenges.tex |  16 ++++---
+ 5 files changed, 159 insertions(+), 15 deletions(-)
+
+GENIECapabilities$ git tag
+GENIECapabilities$ git tag -a v20130910 -m '2013/09/10 - added physics needs'
+GENIECapabilities$ git tag
+v20130910
 
 
