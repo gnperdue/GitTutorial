@@ -1,0 +1,36 @@
+
+GENIECapabilities$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   gc_executive_summary.tex
+# modified:   gc_goals.tex
+# modified:   gc_technical_capabilities.tex
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+GENIECapabilities$ git add gc_executive_summary.tex 
+GENIECapabilities$ git commit
+[master e22c4fe] Clean up introduction and add emphasis on two-person role (myself and likely Julia).
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+GENIECapabilities$ git add gc_goals.tex 
+GENIECapabilities$ git commit
+[master c4b8dd9] Cleanup and remove paragraph about investing in physics first and user support second - the new plan is to start on both branches right up front (with different personnel and manpower levels).
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+GENIECapabilities$ git add gc_technical_capabilities.tex 
+GENIECapabilities$ git commit
+[master 957faaa] Cleanup.
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+GENIECapabilities$ git status
+# On branch master
+nothing to commit (working directory clean)
+GENIECapabilities$ git reflog
+957faaa HEAD@{0}: commit: Cleanup.
+c4b8dd9 HEAD@{1}: commit: Cleanup and remove paragraph about investing in physics fi
+e22c4fe HEAD@{2}: commit: Clean up introduction and add emphasis on two-person role 
+0b6902e HEAD@{3}: commit: Ignore LaTeX detritus and final product pdf.
+8756267 HEAD@{4}: commit (initial): Initial commit of GENIE capabilities doc.
+
+
+
