@@ -79,4 +79,82 @@ GENIECapabilities$ git tag -a v20130910 -m '2013/09/10 - added physics needs'
 GENIECapabilities$ git tag
 v20130910
 
+GENIECapabilities$ git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   gc_executive_summary.tex
+# modified:   gc_fnal_contrib.tex
+# modified:   gc_goals.tex
+# modified:   gc_new_generator_challenges.tex
+# modified:   gc_technical_capabilities.tex
+#
+GENIECapabilities$ git stash
+Saved working directory and index state WIP on master: 1dcbde8 Add more physics needs, including some experiment specific blocks.
+HEAD is now at 1dcbde8 Add more physics needs, including some experiment specific blocks.
+GENIECapabilities$ git reflog
+1dcbde8 HEAD@{0}: merge add_physics_goals: Fast-forward
+957faaa HEAD@{1}: checkout: moving from add_physics_goals to master
+1dcbde8 HEAD@{2}: commit: Add more physics needs, including some experiment specific
+e6e34b7 HEAD@{3}: commit: Add some more talks from the GENIE workshop at Pitt, expt.
+64e02f4 HEAD@{4}: commit: Add experimental refs (webpages for minerva, nova, lbne, e
+d1da0d8 HEAD@{5}: commit: Add url hyperlink for NuWro.
+b5dfeb0 HEAD@{6}: commit: Add a direct copy of Hugh's master list of physics topics.
+54b6003 HEAD@{7}: commit: Use the hyperref package for nice url parsing in the bibli
+4eb00b1 HEAD@{8}: commit: Ignore more LaTeX detritus: GENIECapabilities.out
+c4c9418 HEAD@{9}: commit: Cleanup and try to change the tone a bit - want to emphasi
+957faaa HEAD@{10}: checkout: moving from master to add_physics_goals
+957faaa HEAD@{11}: commit: Cleanup.
+c4b8dd9 HEAD@{12}: commit: Cleanup and remove paragraph about investing in physics f
+e22c4fe HEAD@{13}: commit: Clean up introduction and add emphasis on two-person role
+0b6902e HEAD@{14}: commit: Ignore LaTeX detritus and final product pdf.
+8756267 HEAD@{15}: commit (initial): Initial commit of GENIE capabilities doc.
+
+GENIECapabilities$ git checkout -b soften_language
+Switched to a new branch 'soften_language'
+GENIECapabilities$ git stash list
+stash@{0}: WIP on master: 1dcbde8 Add more physics needs, including some experiment 
+GENIECapabilities$ git stash pop
+# On branch soften_language
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   gc_executive_summary.tex
+# modified:   gc_fnal_contrib.tex
+# modified:   gc_goals.tex
+# modified:   gc_new_generator_challenges.tex
+# modified:   gc_technical_capabilities.tex
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (145e9588d9ec04edc8d39f1017d6c0ce2e2a5a2a)
+
+add
+commit
+
+GENIECapabilities$ git status
+# On branch soften_language
+nothing to commit (working directory clean)
+
+GENIECapabilities$ git checkout master
+Switched to branch 'master'
+GENIECapabilities$ git merge soften_language
+Updating 1dcbde8..e8b3bc8
+Fast-forward
+ gc_executive_summary.tex        |  1 -
+ gc_fnal_contrib.tex             | 54 ++++++++++++++++++++++++++++++++-------------
+ gc_goals.tex                    | 18 +++++----------
+ gc_new_generator_challenges.tex | 14 +++++++-----
+ gc_technical_capabilities.tex   |  2 +-
+ 5 files changed, 55 insertions(+), 34 deletions(-)
+GENIECapabilities$ git tag
+v20130910
+GENIECapabilities$ git tag -a v20130912 -m '2013/09/12 - soften language'
+GENIECapabilities$ git tag
+v20130910
+v20130912
+
+
 
