@@ -156,5 +156,11 @@ GENIECapabilities$ git tag
 v20130910
 v20130912
 
+GENIECapabilities$ git mv GENIECapabilities.tex GENIECapabilities_v1.tex
+GENIECapabilities$ git tag -a v20130912v1 -m '2013/09/12 - version number main doc'
+GENIECapabilities$ git tag
+v20130910
+v20130912
+v20130912v1
 
 
