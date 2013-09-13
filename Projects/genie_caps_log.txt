@@ -163,4 +163,66 @@ v20130910
 v20130912
 v20130912v1
 
+GENIECapabilities$ git reflog
+0be8707 HEAD@{0}: commit: Capture re-title and bib name.
+1d5b160 HEAD@{1}: commit: Re-name and re-title to get the focus right.
+e722b0b HEAD@{2}: commit: Re-name main doc to start versioning.
+e8b3bc8 HEAD@{3}: merge soften_language: Fast-forward
+
+pick e722b0b Re-name main doc to start versioning.
+squash 1d5b160 Re-name and re-title to get the focus right.
+squash 0be8707 Capture re-title and bib name.
+
+# Rebase e8b3bc8..0be8707 onto e8b3bc8
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+
+2 picks -> 2 squashes
+
+GENIECapabilities$ git rebase -i HEAD~3
+[detached HEAD 2bee121] Re-name main doc to start versioning.
+ 3 files changed, 8 insertions(+), 8 deletions(-)
+ rename GENIECapabilities.bib => FNAL_GENIE.bib (100%)
+ rename GENIECapabilities.tex => FNAL_GENIE_v1.tex (95%)
+Successfully rebased and updated refs/heads/master.
+
+GENIECapabilities$ git tag -a v20130912_rename_v1 -m '2013/09/12 - settle on name'
+GENIECapabilities$ git tag
+v20130910
+v20130912
+v20130912_rename_v1
+v20130912v1
+
+GENIECapabilities$ git reflog
+2bee121 HEAD@{0}: rebase -i (finish): returning to refs/heads/master
+2bee121 HEAD@{1}: rebase -i (squash): Re-name main doc to start versioning.
+14b2aaa HEAD@{2}: rebase -i (squash): # This is a combination of 2 commits.
+e722b0b HEAD@{3}: checkout: moving from master to e722b0b
+0be8707 HEAD@{4}: commit: Capture re-title and bib name.
+1d5b160 HEAD@{5}: commit: Re-name and re-title to get the focus right.
+e722b0b HEAD@{6}: commit: Re-name main doc to start versioning.
+
+GENIECapabilities$ git log
+commit 2bee1210361fb3b4f362c322295391988c06e1e5
+Author: Gabriel Perdue <gnperdue@me.com>
+Date:   Thu Sep 12 19:42:58 2013 -0500
+
+    Re-name main doc to start versioning.
+    
+    Re-name and re-title to get the focus right.
+    
+    Capture re-title and bib name.
+
+commit e8b3bc8d62d74f00fd64990f0b3f929cf1941696
+Author: Gabriel Perdue <gnperdue@me.com>
+Date:   Thu Sep 12 19:37:37 2013 -0500
+
+    Minor cleanups.
+
 
