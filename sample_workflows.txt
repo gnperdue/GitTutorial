@@ -44,4 +44,11 @@ git checkout master               # Move back onto the master branch.
 git merge newfeature              # Pull in the new feature.
 git push origin master            # Push the master branch back onto the remote server.
 
-
+- While in the middle of a project, you realize you need to pull down remote
+- changes that might conflict with your uncommitted changes.
+----------------------------------------------------------------------------
+git pull                    # Fails due to conflicts
+    ...
+git stash save
+git pull
+git stash pop               # Now you have to resolve conflicts.
