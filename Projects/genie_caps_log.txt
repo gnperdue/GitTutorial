@@ -226,3 +226,31 @@ Date:   Thu Sep 12 19:37:37 2013 -0500
     Minor cleanups.
 
 
+GENIECapabilities$ more ~/.gitconfig 
+[user]
+        name = Gabriel Perdue
+        email = perdue@fnal.gov
+[credential]
+        helper = osxkeychain
+GENIECapabilities$ git config --global color.ui true
+GENIECapabilities$ more ~/.gitconfig 
+[user]
+        name = Gabriel Perdue
+        email = perdue@fnal.gov
+[credential]
+        helper = osxkeychain
+[color]
+        ui = true
+
+GENIECapabilities$ git config --global core.excludesfile ~/.gitignore_global
+GENIECapabilities$ more ~/.gitconfig 
+[user]
+        name = Gabriel Perdue
+        email = perdue@fnal.gov
+[credential]
+        helper = osxkeychain
+[color]
+        ui = true
+[core]
+        excludesfile = /Users/perdue/.gitignore_global
+
