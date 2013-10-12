@@ -1,0 +1,193 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm} % Theorem formatting. http://en.wikibooks.org/wiki/LaTeX/Theorems
+\usepackage{bm} % bold math
+\usepackage{xspace}
+\usepackage{upgreek}
+
+% font selection
+%----------------------
+\usepackage{lmodern}
+%\usepackage{palatino}
+%\usepackage{times}
+%\usepackage{newcent}
+%\usepackage{bookman}
+%\usepackage{helvet}
+
+
+% General Math
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\abs}[1]{\mathopen| #1 \mathclose|}
+\newcommand{\bra}[1]{\langle #1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\braket}[2]{\langle #1|#2\rangle}
+
+% Probability
+\newcommand{\Blitz}{\emph{Blitzstein}:~}
+\newcommand{\bincoeff}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\sbincoeff}[2]{\left( \begin{smallmatrix} #1 \\ #2 \end{smallmatrix} \right) }
+\newcommand{\pof}[1]{P\left(#1\right)}
+\newcommand{\fof}[1]{f\left(#1\right)}
+\newcommand{\fxof}[1]{f_X\left(#1\right)}
+\newcommand{\lr}[1]{\left(#1\right)}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Bin}[1]{\mathrm{Bin}{\left(#1\right)}}
+\newcommand{\eof}[1]{\text{E}\left(#1\right)}
+\newcommand{\var}[1]{\text{Var}\left(#1\right)}
+\newcommand{\Bern}[1]{\mathrm{Bern}{\left(#1\right)}}
+\newcommand{\Geom}[1]{\mathrm{Geom}{\left(#1\right)}}
+\newcommand{\Pois}[1]{\mathrm{Pois}{\left(#1\right)}}
+\newcommand{\Unif}[1]{\mathrm{Unif}{\left(#1\right)}}
+\newcommand{\Expo}[1]{\mathrm{Expo}{\left(#1\right)}}
+\newcommand{\Norm}[1]{\mathcal{N}{\left(#1\right)}}
+\newcommand{\cov}[1]{\text{cov}{\left(#1\right)}}
+\newcommand{\pdiv}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdivsq}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+
+% Algorithms
+\newcommand{\thtn}[1]{\Theta\left(n^{#1}\right)}
+
+% Discrete Math
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+% Theorems
+%  Number lemmas within theorems, http://www.mackichan.com/index.html?techtalk/611.htm~mainFrame
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+% Formatting
+%  Overbar idea from:
+%   http://tex.stackexchange.com/questions/22100/the-bar-and-overline-commands
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+% support tab expansion in verbatim mode
+%  http://ctan.org/pkg/moreverb
+\usepackage{moreverb} 
+
+% Places
+\newcommand{\Rutgers}{Rutgers, The State University of New Jersey, Piscataway, New Jersey 08854, USA}
+\newcommand{\Hampton}{Hampton University, Dept. of Physics, Hampton, VA 23668, USA}
+\newcommand{\Dortmund}{Institute of Physics, Dortmund University, 44221, Germany }
+\newcommand{\Otterbein}{Otterbein College,1 South Grove Street, Westerville, OH, 43081,USA}
+\newcommand{\JMU}{James Madison University, Harrisonburg, Virginia 22807, USA}
+\newcommand{\Florida}{Department of Physics, University of Florida, Gainesville, FL 32611,USA}
+\newcommand{\UCIrvine}{Department of Physics and Astronomy, University of California -- Irvine, Irvine, California 92697-4575, USA}
+\newcommand{\CBPF}{Centro Brasileiro de Pesquisas F\'{i}sicas, Rua Dr. Xavier Sigaud 150, Urca, Rio de Janeiro, RJ, 22290-180, Brazil}
+\newcommand{\INRM}{Institute for Nuclear Research of the Russian Academy of Sciences, 117312 Moscow, Russia}
+\newcommand{\Jlab}{Jefferson Lab, 12000 Jefferson Avenue, Newport News, VA 23606, USA}
+\newcommand{\Pittsburgh}{Department of Physics and Astronomy, University of Pittsburgh, Pittsburgh, Pennsylvania 15260, USA}
+\newcommand{\Guanajuato}{Universidad de Guanajuato. Lascura\'{i}n de Retana No. 5. Col. Centro. Guanajuato 37150, Guanajuato. M\'{e}xico}
+\newcommand{\Athens}{Department of Physics, University of Athens, GR-15771 Athens, Greece}
+\newcommand{\Tufts}{Physics Department, Tufts University, Medford, Massachusetts 02155, USA}
+\newcommand{\WM}{Department of Physics, College of William \& Mary, Williamsburg, Virginia 23187, USA}
+\newcommand{\FNAL}{Fermi National Accelerator Laboratory, Batavia, Illinois 60510, USA}
+\newcommand{\Purdue}{Department of Chemistry and Physics, Purdue University Calumet, Hammond, Indiana 46323, USA}
+\newcommand{\MCLA}{Massachusetts College of Liberal Arts, 375 Church Street, North Adams, MA 01247, USA}
+\newcommand{\UMD}{Department of Physics, University of Minnesota -- Duluth, Duluth, Minnesota 55812, USA}
+\newcommand{\Northwestern}{Northwestern University, Evanston, Illinois 60208, USA}
+\newcommand{\UNI}{Universidad Nacional de Ingenier\'{i}a, Tupac Amaru Avenue 210, Lima, Per\'u}
+\newcommand{\Rochester}{University of Rochester, Rochester, New York 14610 USA}
+\newcommand{\Austin}{Department of Physics, University of Texas, 1 University Station, Austin, Texas 78712, USA}
+\newcommand{\USM}{Departamento de F\'isica, Universidad T\'ecnica Federico Santa Mar\'ia, Avda. Espa\~na 1680 Casilla 110-V Valpara\'iso, Chile}
+
+
+% Minerva
+\newcommand{\minerva}{MINER\ensuremath{\upnu}A\xspace}
+\newcommand{\nova}{NO\ensuremath{\upnu}A\xspace}
+\newcommand{\microboone}{MicroBooNE\xspace}
+\newcommand{\argoneut}{ArgoNeuT\xspace}
+
+
+%==================
+% units
+%==================
+\newcommand{\kg}{\ensuremath{\mbox{kg}}\xspace}
+\newcommand{\rad}{\ensuremath{\mbox{rad}}\xspace}
+\newcommand{\mrad}{\ensuremath{\mbox{mrad}}\xspace}
+\newcommand{\eV}{\ensuremath{\mbox{eV}}\xspace}
+\newcommand{\keV}{\ensuremath{\mbox{keV}}\xspace}
+\newcommand{\MeV}{\ensuremath{\mbox{MeV}}\xspace}
+\newcommand{\GeV}{\ensuremath{\mbox{GeV}}\xspace}
+\newcommand{\MeVc}{\ensuremath{\mbox{MeV}/c}\xspace}
+\newcommand{\GeVc}{\ensuremath{\mbox{GeV}/c}\xspace}
+\newcommand{\GeVcc}{\ensuremath{\mbox{GeV}/c^2}\xspace}
+\newcommand{\eVsq}{\ensuremath{\mbox{eV}^2}\xspace}
+\newcommand{\eVsqbf}{\ensuremath{\mathbf{\mbox{eV}^2}}\xspace}
+\newcommand{\T}{\ensuremath{\mbox{T}}\xspace}
+\newcommand{\mmsq}{\ensuremath{\mbox{mm}^2}\xspace}
+\newcommand{\cmsq}{\ensuremath{\mbox{cm}^2}\xspace}
+\newcommand{\cmcube}{\ensuremath{\mbox{cm}^3}\xspace}
+\newcommand{\gcmcube}{\ensuremath{\mbox{g/cm}^3}\xspace}
+\newcommand{\msq}{\ensuremath{\mbox{m}^2}\xspace}
+\newcommand{\mcube}{\ensuremath{\mbox{m}^3}\xspace}
+\newcommand{\micron}{\ensuremath{\mu \mbox{m}}\xspace}
+\newcommand{\mm}{\ensuremath{\mbox{mm}}\xspace}
+\newcommand{\cm}{\ensuremath{\mbox{cm}}\xspace}
+\newcommand{\m}{\ensuremath{\mbox{m}}\xspace}
+\newcommand{\km}{\ensuremath{\mbox{km}}\xspace}
+\newcommand{\ps}{\ensuremath{\mbox{ps}}\xspace}
+\newcommand{\ns}{\ensuremath{\mbox{ns}}\xspace}
+\newcommand{\micros}{\ensuremath{\mu \mbox{s}}\xspace}
+\newcommand{\ms}{\ensuremath{\mbox{ms}}\xspace}
+\newcommand{\s}{\ensuremath{\mbox{s}}\xspace}
+%\newcommand{\gcmcm}{\ensuremath{\mbox{g/cm^2}}\xspace}
+
+%=============
+% Constants
+%=============
+%\newcommand{\tonth}{\ensuremath{\theta_{13}}\xspace}
+%\newcommand{\deltacp}{\ensuremath{\delta_{CP}}\xspace}
+\newcommand{\tonth}{\ensuremath{\uptheta_{13}}\xspace}
+\newcommand{\deltacp}{\ensuremath{\updelta_{CP}}\xspace}
+\newcommand{\enu}{\ensuremath{\upnu_{e}}\xspace}
+\newcommand{\munu}{\ensuremath{\upnu_{\mu}}\xspace}
+\newcommand{\taunu}{\ensuremath{\upnu_{\tau}}\xspace}
+
+% Examples:
+%
+% Matrix
+%--------
+% A = \begin{pmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{pmatrix}
+%
+% Table
+%----------
+%\begin{table}[htb]
+%\centering
+%\begin{tabular}{crr}
+%\toprule
+%$X$: & 1 & 2 \\
+%\midrule
+%$Y$: & 2 & 3 \\
+%\bottomrule
+%\end{tabular}
+%\caption{A table}
+%\label{tbl:atable}
+%\end{table}
+%
+% Figure
+%----------
+%\begin{figure}
+%  \centering
+%  \includegraphics[height=0.32\textheight]{RecursionTree}
+%  \caption{A caption.}
+%  \label{fig:recursiontree}
+%\end{figure}
+%
+% Braced Equation
+%------------------
+%\[
+%  f(n) = \left\{ 
+%  \begin{array}{l l}
+%    n/2 & \quad \text{if $n$ is even}\\
+%    -(n+1)/2 & \quad \text{if $n$ is odd}\\
+%  \end{array} \right.
+%\]
+

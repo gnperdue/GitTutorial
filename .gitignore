@@ -1,4 +1,5 @@
 *.o
+GitInLittleBits/*.pdf
 
 # .gitignore:
 # 1) Blank lines are ignored, and a pound sign (#) can be used for comments.

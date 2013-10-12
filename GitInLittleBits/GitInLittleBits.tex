@@ -1,0 +1,41 @@
+\documentclass[12pt,epsfig,epsf]{article}
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}  % numbers instead of author-year (harder to code in the .bib)
+
+%% Need this for \toprule, etc.
+\usepackage{booktabs}
+
+%% Add line numbers w/ \linenumbers.
+\usepackage{lineno}
+
+%% Get basic author block formatting.
+\usepackage{authblk}
+
+\usepackage{hyperref}
+
+
+\usepackage{textcomp} % provide lots of new symbols
+\textheight 8.5in \textwidth 6.5in \oddsidemargin 0in \topmargin 0in
+
+\input{preamble.tex}
+\input{codeformattingcpp.tex}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\linenumbers
+
+\title{Git In Little Bits}
+
+\author[1]{G.~N.~Perdue}
+\affil[1]{\FNAL}
+
+\maketitle
+
+\input{lesson001.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrtnat}
+
+%\bibliography{}
+
+\end{document}
