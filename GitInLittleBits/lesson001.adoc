@@ -13,7 +13,7 @@ $ git init
 ----------------------------------------------
 
 This should produce the output:
-// [source,shell]
+
 ----------------------------------------------
 $ git init
 Initialized empty Git repository in /Users/you/tmp/scratch/.git/
@@ -26,55 +26,71 @@ efficiently store copies of our work. You can learn more by executing
 `git --help init`, but that could lead to information overload at this stage, 
 so don't worry about that just yet.
 
-// Next, execute \texttt{git status}. You should see:
-// \begin{verbatim}
-// $ git status
-// # On branch master
-// #
-// # Initial commit
-// #
-// # Untracked files:
-// #   (use "git add <file>..." to include in what will be committed)
-// #
-// #	bar.txt
-// #	foo.txt
-// nothing added to commit but untracked files present (use "git add" to track)
-// \end{verbatim}
+Next, execute `git status`. You should see:
 
-// We haven't committed anything yet, so we see the ``Initial commit'' message. Also note that we have ``untracked files.'' git will only store the files you explicitly tell it to, and has flexible tools for helping you to ignore files you never want to commit (compiled binaries and libraries, for example).
+----------------------------------------------
+$ git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	bar.txt
+#	foo.txt
+nothing added to commit but untracked files present (use "git add" to track)
+----------------------------------------------
 
-// Let's add a couple of files and make a commit.
-// \begin{verbatim}
-// $ git add bar.txt 
-// $ git add foo.txt 
-// $ git status
-// # On branch master
-// #
-// # Initial commit
-// #
-// # Changes to be committed:
-// #   (use "git rm --cached <file>..." to unstage)
-// #
-// #	new file:   bar.txt
-// #	new file:   foo.txt
-// #
-// \end{verbatim}
-// Notice that ``adding'' the file did not actually commit to the repository. We simply told git to track the file. Next, execute \texttt{git commit} and we will see this message:
-// \begin{verbatim}
+We haven't committed anything yet, so we see the ``Initial commit'' message. Also 
+note that we have ``untracked files.'' git will only store the files you 
+explicitly tell it to, and has flexible tools for helping you to ignore files you 
+never want to commit (compiled binaries and libraries, for example).
 
-// # Please enter the commit message for your changes. Lines starting
-// # with '#' will be ignored, and an empty message aborts the commit.
-// # On branch master
-// #
-// # Initial commit
-// #
-// # Changes to be committed:
-// #   (use "git rm --cached <file>..." to unstage)
-// #
-// # new file:   bar.txt
-// # new file:   foo.txt
-// #
-// \end{verbatim}
-// We have an opportunity to enter a message here logging the commit. git actually won't let you commit without entering a log message. It is a good idea to always leave a concise, clear message. We'll see over the course of these lessons that git strongly encourages a model of very frequent commits. You'll have the ability later to edit and compress your commits, so you don't need to worry about a cluttered commit history.
+Let's add a couple of files and make a commit.
 
-// For now, type in something simple like: ``First commit of foobar.'' The default editor is vim. If you don't know vim, don't worry, we'll explain how to change the default editor in the next lesson. For now, just press ``i'' to enter vim's \emph{insert mode}, type in your message, and then press the ESC key and follow it with ``:wq''.
+----------------------------------------------
+$ git add bar.txt 
+$ git add foo.txt 
+$ git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   bar.txt
+#	new file:   foo.txt
+#
+----------------------------------------------
+Notice that ``adding'' the file did not actually commit to the repository. We 
+simply told git to track the file. Next, execute `git commit` and we will see 
+this message:
+
+----------------------------------------------
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+# new file:   bar.txt
+# new file:   foo.txt
+#
+----------------------------------------------
+We have an opportunity to enter a message here logging the commit. git actually 
+won't let you commit without entering a log message. It is a good idea to always 
+leave a concise, clear message. We'll see over the course of these lessons that 
+git strongly encourages a model of very frequent commits. You'll have the ability 
+later to edit and compress your commits, so you don't need to worry about a 
+cluttered commit history.
+
+For now, type in something simple like: ``First commit of foobar.'' The default 
+editor is vim. If you don't know vim, don't worry, we'll explain how to change the 
+default editor in the next lesson. For now, just press ``i'' to enter vim's 
+insert mode, type in your message, and then press the ESC key and follow it with ``:wq''.
