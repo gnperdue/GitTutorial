@@ -93,4 +93,47 @@ cluttered commit history.
 For now, type in something simple like: ``First commit of foobar.'' The default 
 editor is vim. If you don't know vim, don't worry, we'll explain how to change the 
 default editor in the next lesson. For now, just press ``i'' to enter vim's 
-insert mode, type in your message, and then press the ESC key and follow it with ``:wq''.
+insert mode, type in your message, and then press the ESC key and follow it 
+with ``:wq''.
+
+Now, if we repeat `git status` we find nothing to commit:
+
+----------------------------------------------
+$ git status
+# On branch master
+nothing to commit, working directory clean
+----------------------------------------------
+
+But are we sure we did anything? Let's meet two more commands, `git log` and 
+`git reflog`.
+
+----------------------------------------------
+$ git log
+commit 8f4251f412089db0c1ba94b4e04baca50ef9ae64
+Author: Gabriel Perdue <gnperdue@me.com>
+Date:   Sun Oct 13 10:37:18 2013 -0500
+
+    First commit of foobar.
+
+$ git reflog
+8f4251f HEAD@{0}: commit (initial): First commit of foobar.
+----------------------------------------------
+
+`git log` shows the commit logs. This is the ``official history,'' and is what you
+would see if you checked the repository out from a remote server on a different
+machine.
+
+`git reflog` shows when branches change. We'll talk more about branches later, 
+so for now think of it as a change history. The information is local to the 
+repository, so if you work in one area for example, and then check the 
+repository somewhere else, the two repositories will agree on the log but not
+the reflog.
+
+Even these simple commands are enough to get started with git. You can create a
+repository and use it to save incrememntal changes to your work. We don't know 
+how to recover changes or how to replicate the repository on a remote server 
+yet, but we'll get to that. In the meantime, you should practice these commands
+by creating repositories for some of your current projects, adding some files, 
+and saving your changes as you work. (Choose small projects since we haven't 
+talked about how to manage the file addition process yet.)
+
