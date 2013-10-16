@@ -1,3 +1,12 @@
 *.html
 *.sh
 
+# Ignore DocBook intermediate xml.
+*.xml
+
+# Ignore XML->pdf via FO
+*.fo
+
+# Ignore my notes file (mostly gibberish, ha).
+gilb_asciidoc_notes.txt
+
