@@ -1,0 +1,12 @@
+
+Lesson 2
+--------
+
+Let's start to configure git so our name appears correctly in commit messages
+and so we can get the defaults we would like (editors, for example). 
+
+----------------------------------------------
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global core.editor vim
+----------------------------------------------
