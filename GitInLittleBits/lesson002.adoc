@@ -10,3 +10,118 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 git config --global core.editor vim
 ----------------------------------------------
+
+You can check your configuration with the command `git config -l` and you can
+also chec your +$HOME+ directory for the file +.gitconfig+. There are a number 
+of useful configuration settings. Some personal favorites include:
+
+----------------------------------------------
+git config --global color.ui true
+git config --global core.excludesfile ~/.gitignore_global
+git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
+----------------------------------------------
+
+The first of these alters the output from `git log` and `git reflog` by 
+coloring text in a useful way to make the output more readable and easier 
+to skim quickly.
+
+The second creates a global ``ignore'' command. When Git looks for untracked 
+files, it first checks for +.gitignore+ files that provide anti-patterns, or, 
+in other words, patterns for files Git should completely ignore. Git looks in the 
+top level directory of a project and then down the directory chain to whereever
+a file might be found. There can be a different copy of +.gitignore+ in each 
+directory, and the copies in deeper directories override the copies above them.
+
+If that seems confusing now, don't worry, we'll add and edit ``ignore files'' 
+throughout this tutorial, so you'll have a chance to see them in action. For 
+now, let's test the global ignore file. We haven't written one yet, so let's 
+go to our current project directory and add file:
+
+-----------------------------
+$ echo 'ignore me' > gibberish.u
+$ git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+# gibberish.u
+nothing added to commit but untracked files present (use "git add" to track)
+-----------------------------
+
+Now let's edit +$HOME/.gitignore+ and add the line:
+
+-----------------------------
+*.u
+-----------------------------
+
+Now run `git status` again. We get a clean report! Of course, there is no real 
+reason to ignore all +.u+ files, but we should ignore compiled binaries and 
+compressed files. Git has its own compression methods and so in general it will
+be more efficient to store raw source and let Git handle the compression.
+
+Remove +gibberish.u+ and edit your global ignore file again, replacing the contents
+with these (feel free to edit the list to suit your needs, these just happen
+to work for me):
+
+------------------------------
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Latex #
+#########
+*.aux
+*.bbl
+*.blg
+*.out
+
+# R #
+#####
+.RData
+.Rhistory
+
+# Emacs Detritus #
+##################
+*~
+------------------------------
+
+Note that the octothorpe (#) is the comment character.
+
+Finally, remember the last `git config` we listed above? That defined an _alias_.
+We can uses aliases to shorten commands we use a lot. The example above is
+useful for creating a graph to show how branches have evolved relative to 
+the master over time. We'll see how this might be useful later on.
