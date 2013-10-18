@@ -1,10 +1,9 @@
 
-Lesson 1
---------
+Lesson 1 - Create a Repository
+------------------------------
 
 We will assume a Unix/Linux environment for now.
 
-// [source,shell]
 ----------------------------------------------
 $ cd $HOME/tmp; mkdir scratch; cd scratch
 $ echo 'some text' > foo.txt

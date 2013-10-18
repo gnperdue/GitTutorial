@@ -1,6 +1,6 @@
 
-Lesson 2
---------
+Lesson 2 - Personalize Your Configuration
+-----------------------------------------
 
 Let's start to configure git so our name appears correctly in commit messages
 and so we can get the defaults we would like (editors, for example). 
@@ -125,3 +125,11 @@ Finally, remember the last `git config` we listed above? That defined an _alias_
 We can uses aliases to shorten commands we use a lot. The example above is
 useful for creating a graph to show how branches have evolved relative to 
 the master over time. We'll see how this might be useful later on.
+
+We'll close this lesson by highlighting a couple of commands that should help you
+to get help. Try these out: 
+
+.Help
+. `git config --list`
+. `git help config`
+. And, of course... `git help help`
