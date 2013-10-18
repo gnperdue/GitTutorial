@@ -127,9 +127,19 @@ useful for creating a graph to show how branches have evolved relative to
 the master over time. We'll see how this might be useful later on.
 
 We'll close this lesson by highlighting a couple of commands that should help you
-to get help. Try these out: 
+to get help and by offering a few more configuration tweaks. Try these out: 
 
 .Help
 . `git config --list`
 . `git help config`
 . And, of course... `git help help`
+
+
+-------------------------------
+git config --global color.diff true
+git config --global color.status true
+git config --global color.branch true
+git config --global color.interactive true
+-------------------------------
+
+

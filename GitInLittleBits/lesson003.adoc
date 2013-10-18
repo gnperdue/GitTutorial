@@ -134,6 +134,12 @@ Use '--' to separate paths from revisions, like this:
 
 Usually I just copy the digits shown from a `git reflog` command.
 
+One important note (that isn't apparent from what we've looked at so far), is 
+each hash refers to the entire commit - this will often be more than one file 
+changing at once! This may seem confusing at first, but actually it makes a lot of
+sense because it allows us to ties coupled changes together into one ``atomic'' 
+commit.
+
 // $ git rev-parse --verify HEAD
 // e346d22cfd6d69a4a805d50451883f39b059d3bb
 // $ git rev-parse --short HEAD
