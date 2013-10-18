@@ -1,0 +1,153 @@
+
+Lesson 3 - Meeting Hashes
+-------------------------
+
+We know how to create a repository now and how to add something to it, but how
+do we retrieve earlier versions of files?
+
+Let's go back to our example repository and make a change:
+
+----------------
+$ echo 'even more text' >> bar.txt
+$ git commit -a -m "Added some more content to bar.txt."
+[master e346d22] Added some more content to bar.txt.
+ 1 file changed, 1 insertion(+)
+$ git status
+# On branch master
+nothing to commit, working directory clean
+$ git reflog
+e346d22 HEAD@{0}: commit: Added some more content to bar.txt.
+8f4251f HEAD@{1}: commit (initial): First commit of foobar.
+----------------
+
+We cheated and used a short-hand here to commit: we used the ``-a'' and ``-m'' 
+flags. You can read about them in depth with `git help commit`. It is a good idea
+to run that command now, but I'll summarize quickly by saying that ``-a'' tells 
+Git to both _stage_ and _commit_ all modified files and ``-m'' allows you to 
+append a log message without going into the interactive message window. 
+Personally, I really like to see that window so I know what I am changing and 
+what is going on, but I'll use the ``-m'' flag in this tutorial for brevity 
+sometimes.
+
+But wait, what was I just talking about, with ``staging''? Committing a change
+is a two-step process in Git. First you stage all of your commits. Then, when 
+you execute `git commit`, only the staged changes are made. Any unstaged changes
+are not committed. This process might seem a bit awkward at first, but it allows
+you to craft the commit history and make all of your commits meaningful atomic
+units.
+
+Let's look at the output of `git reflog` from above once again and also at the 
+output from `git log`:
+
+----------------
+$ git log
+commit e346d22cfd6d69a4a805d50451883f39b059d3bb
+Author: Gabriel Perdue <perdue@fnal.gov>
+Date:   Fri Oct 18 07:12:16 2013 -0500
+
+    Added some more content to bar.txt.
+
+commit 8f4251f412089db0c1ba94b4e04baca50ef9ae64
+Author: Gabriel Perdue <gnperdue@me.com>
+Date:   Sun Oct 13 10:37:18 2013 -0500
+
+    First commit of foobar.
+----------------
+
+Notice that each commit is identified by an 
+http://en.wikipedia.org/wiki/SHA-1[_SHA1_] hash. You don't need to understand how
+the hash is produced at a deep level to appreciate what it does for us here. 
+Basically, we read the entire file and take the sequence of bits that make it up
+and use them to create a gigantic number that is effectively unique. It isn't quite
+technically unique, but the probability of a _hash collision_ - having two files
+with the same hash value - is negligible for our purposes.
+
+What this means is each commit has a unique identifier you can use to retrieve 
+it. Also, the hash-generating function is deterministic - this means that for the
+same file content on different machines, even running different operating systems,
+we will always generate the same hash. (Note that some operating systems use 
+different characters to mark the newline - this means two files that might look 
+identical to the end user will have different hashes.)
+
+Because we can count on hashes being unique and deterministic, we can use them 
+to track _content_ in a near-universal fashion. This means when we commit a change,
+we are committing a change in content only, and are not relying on mechanisms 
+like file timestamps.
+
+When we work with our commit history, we will use hashes to identify older commits.
+
+----------------
+$ git show e346d22cfd6d69a4a805d50451883f39b059d3bb
+commit e346d22cfd6d69a4a805d50451883f39b059d3bb
+Author: Gabriel Perdue <perdue@fnal.gov>
+Date:   Fri Oct 18 07:12:16 2013 -0500
+
+    Added some more content to bar.txt.
+
+diff --git a/bar.txt b/bar.txt
+index a48dca5..36dcc90 100644
+--- a/bar.txt
++++ b/bar.txt
+@@ -1 +1,2 @@
+ more text
++even more text
+----------------
+
+Fortunately, Git it smart about hashes and you don't need to type the 
+whole thing out. You only need to type enough of the hash to uniquely 
+identify it. Looking back at `git reflog` above, we can just use those hash 
+abbreviations:
+
+----------------
+$ git diff e346d22 8f4251f
+diff --git a/bar.txt b/bar.txt
+index 36dcc90..a48dca5 100644
+--- a/bar.txt
++++ b/bar.txt
+@@ -1,2 +1 @@
+ more text
+-even more text
+----------------
+
+You actually don't even need all of those digits. You could get away with:
+
+----------------
+$ git diff e346 8f42
+diff --git a/bar.txt b/bar.txt
+index 36dcc90..a48dca5 100644
+--- a/bar.txt
++++ b/bar.txt
+@@ -1,2 +1 @@
+ more text
+-even more text
+----------------
+
+However, you can't go arbitrarily short. Four (hexadecimal) digits is typically
+the magic number:
+
+----------------
+$ git diff e34 8f4
+fatal: ambiguous argument 'e34': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+----------------
+
+Usually I just copy the digits shown from a `git reflog` command.
+
+// $ git rev-parse --verify HEAD
+// e346d22cfd6d69a4a805d50451883f39b059d3bb
+// $ git rev-parse --short HEAD
+// e346d22
+// $ git rev-list --max-count=1 HEAD
+// e346d22cfd6d69a4a805d50451883f39b059d3bb
+// $ git rev-list --max-count=2 HEAD
+// e346d22cfd6d69a4a805d50451883f39b059d3bb
+// 8f4251f412089db0c1ba94b4e04baca50ef9ae64
+
+
+
+
+
+
+
+
