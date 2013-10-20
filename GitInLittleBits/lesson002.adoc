@@ -12,7 +12,9 @@ git config --global core.editor vim
 ----------------------------------------------
 
 You can check your configuration with the command `git config -l` and you can
-also chec your +$HOME+ directory for the file +.gitconfig+. There are a number 
+also check your +$HOME+ directory for the file +.gitconfig+. You can view and 
+even edit this file by hand to control your configuration settings if you 
+know what to do. There are a number 
 of useful configuration settings. Some personal favorites include:
 
 ----------------------------------------------
@@ -114,9 +116,10 @@ Thumbs.db
 .RData
 .Rhistory
 
-# Emacs Detritus #
-##################
+# Editor Detritus #
+###################
 *~
+*.swp
 ------------------------------
 
 Note that the octothorpe (#) is the comment character.
