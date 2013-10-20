@@ -1,0 +1,24 @@
+
+The End: Where to go next?
+--------------------------
+
+There are a huge number of great resources on Git out there, and a simple 
+http://google.com[Google] query will yield a lot of interesting fruit.
+
+Here though, are some of my favorite articles and books:
+
+.Git Resources: Books
+. http://git-scm.com/book
+http://github.com/skwp/git-workflows-book
+. http://shop.oreilly.com/product/0636920022862.do[Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development], by Jon Loeliger & Matthew McCullough (O'Reilly)
+
+.Git Resources: Articles
+. http://nvie.com/posts/a-successful-git-branching-model/
+. http://www.jayway.com/2013/03/03/git-is-a-purely-functional-data-structure/
+. http://eclipsesource.com/blogs/2009/12/13/persistent-trees-in-git-clojure-and-couchdb-data-structure-convergence/
+. http://en.wikipedia.org/wiki/Purely_functional#Trees
+. http://root.cern.ch/drupal/content/git-tips-and-tricks
+
+.Git Resources: Communities
+. http://www.github.com
+
