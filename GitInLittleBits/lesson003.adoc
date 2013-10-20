@@ -3,7 +3,8 @@ Lesson 3 - Meeting Hashes
 -------------------------
 
 We know how to create a repository now and how to add something to it, but how
-do we retrieve earlier versions of files?
+do we retrieve earlier versions of files? How do we even know what an earlier 
+version even is?
 
 Let's go back to our example repository and make a change:
 

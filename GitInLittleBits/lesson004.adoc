@@ -1,0 +1,12 @@
+
+Lesson 4 - Retrieving Files (Changesets)
+----------------------------------------
+
+In the previous lesson, we learned that previous commits are identified by a 
+hash key. What wasn't obvious from the example is that Git doesn't give 
+individual files hashes, it gives _changesets_ hashes. Git operates on groups
+of changes - this is why the concept of staging is important. It allows us 
+to craft meaningful commits that introduce full features. Later, this will make
+it easier for us to go back to meaningful earlier states once we've learend to 
+take advantage of these features.
+
