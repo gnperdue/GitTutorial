@@ -136,3 +136,27 @@ by creating repositories for some of your current projects, adding some files,
 and saving your changes as you work. (Choose small projects since we haven't 
 talked about how to manage the file addition process yet.)
 
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-001]]
+
+What have we done, and how would we reproduce our repository so far?
+This is what we would enter on the command prompt:
+
+--------------------------------
+cd $HOME/tmp; mkdir scratch; cd scratch
+echo 'some text' > foo.txt
+echo 'more text' > bar.txt
+git init
+git add bar.txt 
+git add foo.txt  
+git commit
+git status
+git log
+git reflog
+--------------------------------
+
+When we commit, our log message would be: ``First commit of foobar.''
+The last three commands do not affect the repository but instead allow us to 
+inspect its status.
+

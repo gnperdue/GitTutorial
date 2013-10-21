@@ -151,10 +151,12 @@ commit.
 // e346d22cfd6d69a4a805d50451883f39b059d3bb
 // 8f4251f412089db0c1ba94b4e04baca50ef9ae64
 
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-003]]
 
-
-
-
-
-
-
+What have we done, and how would we reproduce our repository so far?
+We would only follow the summary from tthe previous section <<summary-002>>.
+In this lesson, we didn't change our repository, we just learned how to 
+interpret the mysterious hexadecimal strings Git reports to identify 
+commits.

@@ -10,3 +10,11 @@ to craft meaningful commits that introduce full features. Later, this will make
 it easier for us to go back to meaningful earlier states once we've learend to 
 take advantage of these features.
 
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-004]]
+
+What have we done, and how would we reproduce our repository so far?
+We would first follow the summary from the previous section <<summary-003>>.
+
+
