@@ -9,7 +9,7 @@ Here though, are some of my favorite articles and books:
 
 .Git Resources: Books
 . http://git-scm.com/book
-http://github.com/skwp/git-workflows-book
+. http://github.com/skwp/git-workflows-book
 . http://shop.oreilly.com/product/0636920022862.do[Version Control with Git: Powerful Tools and Techniques for Collaborative Software Development], by Jon Loeliger & Matthew McCullough (O'Reilly)
 
 .Git Resources: Articles
