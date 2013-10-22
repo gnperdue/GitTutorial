@@ -38,7 +38,7 @@ $ git reflog
 5d70af1 HEAD@{2}: commit: Added a stable new feature
 e346d22 HEAD@{3}: commit: Added some more content to bar.txt.
 8f4251f HEAD@{4}: commit (initial): First commit of foobar.
----------------------
+--------------------
 
 We did something new here, we suppled the `-a` flag to `git commit`. This flag
 tells Git to _stage all changes_ and then make the commit. It is useful shortcut
