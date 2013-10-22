@@ -1,6 +1,7 @@
 
 Lesson 2 - Personalize Your Configuration
 -----------------------------------------
+[[lesson-002]]
 
 Let's start to configure git so our name appears correctly in commit messages
 and so we can get the defaults we would like (editors, for example). Obviously,

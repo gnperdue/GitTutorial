@@ -1,6 +1,7 @@
 
 Lesson 1 - Create a Repository
 ------------------------------
+[[lesson-001]]
 
 We will assume a Unix/Linux environment for now.
 

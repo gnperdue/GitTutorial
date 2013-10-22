@@ -1,6 +1,7 @@
 
 Lesson 4 - Retrieving Files (Changesets)
 ----------------------------------------
+[[lesson-004]]
 
 In the previous lesson, we learned that previous commits are identified by a 
 hash key. What wasn't obvious from the example is that Git doesn't give 
@@ -9,6 +10,123 @@ of changes - this is why the concept of staging is important. It allows us
 to craft meaningful commits that introduce full features. Later, this will make
 it easier for us to go back to meaningful earlier states once we've learend to 
 take advantage of these features.
+
+Let's examine how we bring back an older changeset. First, let's add some 
+data to our repository:
+
+--------------------
+$ echo 'a stable new feature' >> foo.txt 
+$ git commit -a -m 'Added a stable new feature'
+[master 5d70af1] Added a stable new feature
+ 1 file changed, 1 insertion(+)
+$ echo 'another stable new feature' >> foo.txt 
+$ git commit -a -m 'Added another stable new feature'
+[master 0fb1e51] Added another stable new feature
+ 1 file changed, 1 insertion(+)
+$ echo 'an experimental new feature' >> foo.txt 
+$ git commit -a -m 'Added an experimental new feature'
+[master 6ad5f77] Added an experimental new feature
+ 1 file changed, 1 insertion(+)
+$ more foo.txt 
+some text
+a stable new feature
+another stable new feature
+an experimental new feature
+$ git reflog
+6ad5f77 HEAD@{0}: commit: Added an experimental new feature
+0fb1e51 HEAD@{1}: commit: Added another stable new feature
+5d70af1 HEAD@{2}: commit: Added a stable new feature
+e346d22 HEAD@{3}: commit: Added some more content to bar.txt.
+8f4251f HEAD@{4}: commit (initial): First commit of foobar.
+---------------------
+
+We did something new here, we suppled the `-a` flag to `git commit`. This flag
+tells Git to _stage all changes_ and then make the commit. It is useful shortcut
+when you've only made one small changeset and you know you want it all staged 
+together. 
+
+Now, suppose we decide our experimental feature is not a success. How do we 
+get back to where we were? Note that the approach we're about to look at is
+not exactly idomatic Git - the preferred model for adding new features is to use
+a _branch_. Don't worry, we'll get to that. In the meantime, let's just grab an
+older version from the repository:
+
+---------------------
+$ git checkout 0fb1e51
+Note: checking out '0fb1e51'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at 0fb1e51... Added another stable new feature
+$ more foo.txt 
+some text
+a stable new feature
+another stable new feature
+$ echo 'yet another stable new feature' >> foo.txt 
+$ git commit -a -m "Added yet another stable new feature"
+[detached HEAD ef78473] Added yet another stable new feature
+ 1 file changed, 1 insertion(+)
+$ git reflog
+ef78473 HEAD@{0}: commit: Added yet another stable new feature
+0fb1e51 HEAD@{1}: checkout: moving from master to 0fb1e51
+6ad5f77 HEAD@{2}: commit: Added an experimental new feature
+0fb1e51 HEAD@{3}: commit: Added another stable new feature
+5d70af1 HEAD@{4}: commit: Added a stable new feature
+e346d22 HEAD@{5}: commit: Added some more content to bar.txt.
+8f4251f HEAD@{6}: commit (initial): First commit of foobar.
+---------------------
+
+What we did was checkout a hash that identified the changeset we wanted. Note 
+that Git supplied you with a message explaining the situation. Let's ignore it
+for now because it is assuming you are operating on a branch.
+
+Instead, let's just note that we got back +foo.txt+ in the state we wanted and 
+also that the experimental change is still there in the reflog. We didn't lose it.
+Although, we should note that it is not part of the ``official history'':
+
+---------------------
+$ git show-graph
+* ef78473 Added yet another stable new feature
+* 0fb1e51 Added another stable new feature
+* 5d70af1 Added a stable new feature
+* e346d22 Added some more content to bar.txt.
+* 8f4251f First commit of foobar.
+---------------------
+
+Did `git show-graph` generate an error message for you? Did you update your 
+configuration with all the changes suggested in <<lesson-002>>? If you didn't,
+you can just type the full command instead:
+
+---------------------
+$ git log --graph --abbrev-commit --pretty=oneline
+* ef78473 Added yet another stable new feature
+* 0fb1e51 Added another stable new feature
+* 5d70af1 Added a stable new feature
+* e346d22 Added some more content to bar.txt.
+* 8f4251f First commit of foobar.
+---------------------
+
+Here, we're just calling `git log` with some formatting options to make the report
+into a more concise summary. But note also that `git log` is presenting us with a 
+linear history. It isn't showing the experimental path we wandered down. What if
+you want to look at that experimental path in `git log`?
+
+---------------------------
+A -- B -- C        We added a feature C...
+      \ 
+       D           but then went back and created D. 
+---------------------------
+
+The short answer is it isn't easy - this is why we'll use branches in the 
+future to manage new features.
+
 
 Command Summary
 ~~~~~~~~~~~~~~~
