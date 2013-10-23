@@ -40,6 +40,13 @@ Create an Alias
 git config --global alias.show-graph 'log --graph --abbrev-commit --pretty=oneline'
 --> Now: git show-graph
 
+Work in Living Color
+--------------------
+git config --global color.diff true
+git config --global color.status true
+git config --global color.branch true
+git config --global color.interactive true
+
 Start a Repository
 ------------------
 git init                          # Perform in the directory you wish to be the root.
