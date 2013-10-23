@@ -1,0 +1,17 @@
+
+Lesson 5 - More Retrieving Changesets
+-------------------------------------
+[[lesson-005]]
+
+Now we know one way to retrieve an older version of the repository, but there is 
+more than one way. Some of the others are useful in specific situations.
+
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-005]]
+
+What have we done, and how would we reproduce our repository so far?
+We would first follow the summary from the previous section <<summary-004>>.
+Then, we would enter:
+
+
