@@ -161,6 +161,12 @@ Command Summary
 
 What have we done, and how would we reproduce our repository so far?
 We would only follow the summary from tthe previous section <<summary-002>>.
-In this lesson, we didn't change our repository, we just learned how to 
-interpret the mysterious hexadecimal strings Git reports to identify 
-commits.
+In this lesson, we didn't only made one change to our repository:
+
+--------------
+echo 'even more text' >> bar.txt
+git commit -a -m "Added some more content to bar.txt."
+--------------
+
+We also learned how to interpret the mysterious hexadecimal strings Git reports to 
+identify commits.
