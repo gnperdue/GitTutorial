@@ -84,8 +84,9 @@ e346d22 HEAD@{5}: commit: Added some more content to bar.txt.
 ---------------------
 
 What we did was checkout a hash that identified the changeset we wanted. Note 
-that Git supplied you with a message explaining the situation. Let's ignore it
-for now because it is assuming you are operating on a branch.
+that Git supplied you with a message explaining the situation. It sounds a bit 
+weird. It will eventually be important, but let's ignore it for now because 
+we will need to understand branches to settle it.
 
 Instead, let's just note that we got back +foo.txt+ in the state we wanted and 
 also that the experimental change is still there in the reflog. We didn't lose it.
@@ -124,9 +125,8 @@ A -- B -- C        We added a feature C...
        D           but then went back and created D. 
 ---------------------------
 
-The short answer is it isn't easy - this is why we'll use branches in the 
-future to manage new features.
-
+In order to answer that question, we need to meet branches. We'll do that in the 
+next lesson.
 
 Command Summary
 ~~~~~~~~~~~~~~~

@@ -1,10 +1,19 @@
 
-Lesson 5 - More Retrieving Changesets
--------------------------------------
+Lesson 5 - Meeting Branches and Re-attaching our HEAD
+-----------------------------------------------------
 [[lesson-005]]
 
 Now we know one way to retrieve an older version of the repository, but there is 
-more than one way. Some of the others are useful in specific situations.
+a problem - remember that ``detached HEAD'' message we ignored in the last lesson?
+Well, we really ought to fix that before we go any further.
+
+In order to do that we need to know what a _branch_ is. Without getting into too 
+much depth, a branch is a way to experiment with large-scale changes safely. It
+starts with a given version of your repository and you can make whatever changes 
+you like while preserving an easy-to-retrieve version back where the branch 
+started. 
+
+Branches make collaboration much easier and safer.
 
 Command Summary
 ~~~~~~~~~~~~~~~
