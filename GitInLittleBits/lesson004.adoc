@@ -134,5 +134,17 @@ Command Summary
 
 What have we done, and how would we reproduce our repository so far?
 We would first follow the summary from the previous section <<summary-003>>.
+Then, we would enter:
 
+-----------------
+echo 'a stable new feature' >> foo.txt 
+git commit -a -m 'Added a stable new feature'
+echo 'another stable new feature' >> foo.txt 
+git commit -a -m 'Added another stable new feature'
+echo 'an experimental new feature' >> foo.txt 
+git commit -a -m 'Added an experimental new feature'
+git checkout 0fb1e51
+echo 'yet another stable new feature' >> foo.txt 
+git commit -a -m "Added yet another stable new feature"
+-----------------
 
