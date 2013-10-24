@@ -110,7 +110,7 @@ But are we sure we did anything? Let's meet two more commands, `git log` and
 ----------------------------------------------
 $ git log
 commit 8f4251f412089db0c1ba94b4e04baca50ef9ae64
-Author: Gabriel Perdue <gnperdue@me.com>
+Author: Gabriel Perdue <email@example.com>
 Date:   Sun Oct 13 10:37:18 2013 -0500
 
     First commit of foobar.
