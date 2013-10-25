@@ -163,4 +163,11 @@ What have we done, and how would we reproduce our repository so far?
 We would first follow the summary from the previous section <<summary-004>>.
 Then, we would enter:
 
+-------------------
+git branch feature_alpha
+git checkout feature_alpha
+git checkout master
+git branch -f master feature_alpha
+git checkout master
+-------------------
 
