@@ -67,12 +67,12 @@ with the same hash value - is negligible for our purposes.
 What this means is each commit has a unique identifier you can use to retrieve 
 it. Also, the hash-generating function is deterministic - this means that for the
 same file content on different machines, even running different operating systems,
-we will always generate the same hash. (Note that some operating systems use 
-different characters to mark the newline - this means two files that might look 
-identical to the end user will have different hashes.) This means that if you 
-are entering exactly the same text as appears in this tutorial, you should see the
-same hashes. If you are entering slightly different text, you'll see different 
-hashes.
+we will always generate the same hash. 
+
+Note that the _commit_ tracks a lot of information - not just the file content, 
+but also the author, the time, and some other things. This means that even if you 
+are entering exactly the same text as appears in this tutorial, you won't see the
+same hashes (unless you edit the author, date, etc. to be identical).
 
 Because we can count on hashes being unique and deterministic, we can use them 
 to track _content_ in a near-universal fashion. This means when we commit a change,
