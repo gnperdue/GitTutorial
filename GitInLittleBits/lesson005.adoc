@@ -33,8 +33,11 @@ are ways of course, but they're all messy.
 In Git, you solve this problem by creating a branch, which is a special version of 
 the main repository. Creation and storage are very efficient - there is no need to 
 worry about paying some extra cost for a branch. You do your work on the branch 
-and when you are ready to include the feature, you _merge_ the branches. Git was
-designed to work in a model with lots and lots of branches so it is very good at
+and when you are ready to include the feature, you _merge_ the branches. 
+Other VCSs (CVS, SVN) certainly support branching, but they don't always do it 
+well. Git was designed later than those programs and learned from their successes 
+and failures. It was designed from the very beginning to work in a model with 
+lots and lots of branches. It is very good at
 managing those merges for you and has several different algorithms that make it 
 effective and efficient.
 
@@ -43,7 +46,7 @@ you have your production version of your project and several collaborators worki
 on independent feature branches. Perhaps some of them are even working on the same
 branch. Their work doesn't interfere with each other and they can always save all
 of their work to the repository. If you want to include a feature or a fix to a 
-problem, you merge the branch into your productio version. Once other features
+problem, you merge the branch into your production version. Once other features
 are ready, they are merged next. This way you always have a stable, central
 branch, called the +master+ branch in Git, but you are free to work on new
 features without interfering with your stable main product.
@@ -58,7 +61,7 @@ Armed with all of that, let's go back and fix our detached HEAD.
 $ git branch feature_alpha
 $ git checkout feature_alpha
 Switched to branch 'feature_alpha'
-scratch$ git show-graph
+$ git show-graph
 * ef78473 Added yet another stable new feature
 * 0fb1e51 Added another stable new feature
 * 5d70af1 Added a stable new feature
@@ -115,7 +118,8 @@ consulting the log and the reflog as you go. Notice how the reflog keeps track
 of the checkouts but the log just shows what has been committed.
 
 Now, recall that we didn't like our experimental feature, so let's get rid of 
-it by forcing +master+ to agree with +feature_alpha+:
+it by forcing +master+ to agree with +feature_alpha+. Make sure you have checked
+out +feature_alpha+, then:
 
 --------------------
 $ git branch -f master feature_alpha
@@ -140,7 +144,7 @@ ef78473 HEAD@{5}: commit: Added yet another stable new feature
 --------------------
 
 --------------------
-scratch$ git show-graph
+$ git show-graph
 * ef78473 Added yet another stable new feature
 * 0fb1e51 Added another stable new feature
 * 5d70af1 Added a stable new feature
@@ -166,7 +170,6 @@ Then, we would enter:
 -------------------
 git branch feature_alpha
 git checkout feature_alpha
-git checkout master
 git branch -f master feature_alpha
 git checkout master
 -------------------
