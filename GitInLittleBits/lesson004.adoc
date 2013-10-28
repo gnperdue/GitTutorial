@@ -52,8 +52,8 @@ a _branch_. Don't worry, we'll get to that. In the meantime, let's just grab an
 older version from the repository:
 
 ---------------------
-$ git checkout 0fb1e51
-Note: checking out '0fb1e51'.
+$ git checkout HEAD^
+Note: checking out 'HEAD^'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -83,9 +83,17 @@ e346d22 HEAD@{5}: commit: Added some more content to bar.txt.
 8f4251f HEAD@{6}: commit (initial): First commit of foobar.
 ---------------------
 
-What we did was checkout a hash that identified the changeset we wanted. Note 
-that Git supplied you with a message explaining the situation. It sounds a bit 
-weird. It will eventually be important, but let's ignore it for now because 
+Here we used a shortcut. You could have also given the hash as your commit
+identifier, and said `git checkout 0fb1e51` (as was the case here - you would 
+need to use the correct hash for your own case). But typing that hash out or 
+copying it is a bit annoying and error prone. The caret symbol, +^+, tells Git
+to check out the commit before +HEAD+. One thing that is cool is you can chain
+the carets and execute commands like `git checkout HEAD^^` to go back two 
+commits, etc.
+
+Note also that Git supplied you with a message explaining that we've gotten 
+ourselves into a special situation. It sounds a 
+bit weird. It will eventually be important, but let's ignore it for now because 
 we will need to understand branches to settle it.
 
 Instead, let's just note that we got back +foo.txt+ in the state we wanted and 
@@ -143,7 +151,7 @@ echo 'another stable new feature' >> foo.txt
 git commit -a -m 'Added another stable new feature'
 echo 'an experimental new feature' >> foo.txt 
 git commit -a -m 'Added an experimental new feature'
-git checkout 0fb1e51
+git checkout HEAD^
 echo 'yet another stable new feature' >> foo.txt 
 git commit -a -m "Added yet another stable new feature"
 -----------------
