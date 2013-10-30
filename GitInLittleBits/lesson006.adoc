@@ -1,0 +1,25 @@
+
+Lesson 6 - Start Working with Branches
+--------------------------------------
+[[lesson-006]]
+
+The basic, fundamental approach to working with Git is to always work on a branch.
+Never work on +master+. In some other VCSs, this approach would be awkward, but 
+Git works very well in this mode. 
+
+Now, of course, you don't _have_ to work on a branch. Sometimes it really is 
+appropriate to work on the +master+ branch. But you'll find that building the 
+habit of working on branches will pay off later in more complex situations. 
+You'll also find branches give you much more freedom to experiment, because there 
+is less risk of a mistake being hard to unwind.
+
+Okay, enough propaganda, let's get to work.
+
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-006]]
+
+What have we done, and how would we reproduce our repository so far?
+We would first follow the summary from the previous section <<summary-005>>.
+Then, we would enter:
+
