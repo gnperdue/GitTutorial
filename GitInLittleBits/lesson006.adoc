@@ -15,6 +15,90 @@ is less risk of a mistake being hard to unwind.
 
 Okay, enough propaganda, let's get to work.
 
+--------------
+$ git branch
+  feature_alpha
+* master
+--------------
+
+`git branch` all by itself tells Git to list the set of existing branches for 
+us. At this point, we have the +feature_alpha+ branch we created to fix our 
+detached HEAD problem, and the +master+ branch you always get for free.
+
+Let's make a new one:
+
+--------------
+$ git checkout -b baz_init
+Switched to a new branch 'baz_init'
+$ git branch
+* baz_init
+  feature_alpha
+  master
+--------------
+
+We combined creation of a new branch and moving onto it with one step here. We 
+could have also run `git branch baz_init` and followed that up with `git checkout 
+baz`. 
+
+--------------
+$ echo 'this is a cool new feature' > baz.txt
+$ git add baz.txt 
+$ git commit -m "Add a cool new feature."
+[baz_init aa72647] Add a cool new feature.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 baz.txt
+--------------
+
+Okay, great. Did anything change back on master?
+
+--------------
+$ git checkout master
+Switched to branch 'master'
+$ ls
+bar.txt  foo.txt
+$ git checkout baz_init
+Switched to branch 'baz_init'
+$ ls
+bar.txt  baz.txt  foo.txt
+$ git checkout master
+Switched to branch 'master'
+$ ls
+bar.txt  foo.txt
+$ git checkout baz_init
+Switched to branch 'baz_init'
+$ ls
+bar.txt  baz.txt  foo.txt
+--------------
+
+No! Our changes only live on this new branch. Suppose we really like this 
+new feature. How do we bring it into the +master+ branch with an official blessing?
+
+--------------
+$ git checkout master
+Switched to branch 'master'
+$ ls
+bar.txt  foo.txt
+$ git merge baz_init
+Updating ef78473..aa72647
+Fast-forward
+ baz.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 baz.txt
+$ ls
+bar.txt  baz.txt  foo.txt
+$ git status
+# On branch master
+nothing to commit, working directory clean
+--------------
+
+And there we go! This may look too simple to be worth the effort depending on 
+your perspective, but think about what we did. We created a new feature with 
+the original safe and sound. We were able to bring the new feature in safely, 
+but we also could have left it out, and either way we have a record of the work.
+
+In the next lesson, we'll go into a bit more depth with this sort of basic 
+example and better demonstrate the power of this approach. 
+
 Command Summary
 ~~~~~~~~~~~~~~~
 [[summary-006]]
