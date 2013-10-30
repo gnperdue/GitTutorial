@@ -40,7 +40,7 @@ directory, and the copies in deeper directories override the copies above them.
 If that seems confusing now, don't worry, we'll add and edit ``ignore files'' 
 throughout this tutorial, so you'll have a chance to see them in action. For 
 now, let's test the global ignore file. We haven't written one yet, so let's 
-go to our current project directory and add file:
+go to our current project directory and add a file:
 
 -----------------------------
 $ echo 'ignore me' > gibberish.u
