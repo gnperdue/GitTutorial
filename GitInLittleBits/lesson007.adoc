@@ -1,0 +1,13 @@
+
+Lesson 7 - More with Branches: Patches
+--------------------------------------
+[[lesson-007]]
+
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-007]]
+
+What have we done, and how would we reproduce our repository so far?
+We would first follow the summary from the previous section <<summary-006>>.
+Then, we would enter:
+
