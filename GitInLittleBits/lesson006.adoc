@@ -96,6 +96,16 @@ your perspective, but think about what we did. We created a new feature with
 the original safe and sound. We were able to bring the new feature in safely, 
 but we also could have left it out, and either way we have a record of the work.
 
+We went by the `git merge` command pretty quickly there. Basically, merge runs one
+of a set of several algorithms (it does a bit of analysis first to try to figure
+out which is best) that analyzes the ``before and after'' and moves the new changes
+back into the original branch. It is pretty clever, but sometimes can get tripped 
+up if there are a lot of complicated, overlapping changes. In that case, Git won't
+overwrite what it isn't confident about and it will instruct you on how to 
+reconcile the differences. We'll see more about that later. For now, here, the 
+merge was easy because we were only adding new content, not deleting or changing 
+any old content.
+
 In the next lesson, we'll go into a bit more depth with this sort of basic 
 example and better demonstrate the power of this approach. 
 
@@ -107,3 +117,11 @@ What have we done, and how would we reproduce our repository so far?
 We would first follow the summary from the previous section <<summary-005>>.
 Then, we would enter:
 
+--------------------
+git checkout -b baz_init
+echo 'this is a cool new feature' > baz.txt
+git add baz.txt
+git commit -m "Add a cool new feature."
+git checkout master
+git merge baz_init
+--------------------
