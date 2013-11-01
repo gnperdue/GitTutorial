@@ -18,5 +18,7 @@ include::lesson006.adoc[]
 
 include::lesson007.adoc[]
 
+include::lesson008.adoc[]
+
 
 include::lesson999.adoc[]

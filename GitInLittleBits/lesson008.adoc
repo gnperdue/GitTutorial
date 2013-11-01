@@ -1,0 +1,17 @@
+
+Lesson 8 - More on Handling Interrupts: Stashes
+-----------------------------------------------
+[[lesson-008]]
+
+When working on complicated projects, we have to interrupt work much more often
+than we would like.
+
+Command Summary
+~~~~~~~~~~~~~~~
+[[summary-008]]
+
+What have we done, and how would we reproduce our repository so far?
+We would first follow the summary from the previous section <<summary-007>>.
+Then, we would enter:
+
+
