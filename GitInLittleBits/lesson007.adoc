@@ -3,6 +3,74 @@ Lesson 7 - More with Branches: Patches
 --------------------------------------
 [[lesson-007]]
 
+Now let's examine one of the great strengths of branching - the ability to 
+interrupt work. Let's add a ``feature'' to our project:
+
+------------------
+echo 'this is a new bug' >> bar.txt
+git commit -a -m "Add a new feature to bar.txt"
+------------------
+
+Okay, now that we have a shiny new version of our project, let's release it 
+to the world and start on a new feature, but since we think this might be a 
+slightly more complicated feature, let's be sure to put it on a new branch:
+
+----------------
+git checkout -b baz_alpha
+echo 'this is incomplete feature alpha' > baz.txt
+git add baz.txt
+git commit -m "Add incomplete feature alpha to baz."
+----------------
+
+Now suppose we get a call while in the middle of working on this new feature - 
+reports are streaming in that we released a buggy project. What do we do? We don't 
+want to try to merge the newest feature yet - it is incomplete. Additionally, 
+we don't have time to finish our new work, we need to release the bug fix now! 
+But finally, we don't want to lose any of our work! Git to the rescue:
+
+---------------
+git checkout master
+perl -p -i -e 's/bug/feature/g' bar.txt
+git commit -a -m "Fix a bug in bar."
+---------------
+
+We can just check out the +master+ branch, apply a patch, and commit it. Now it is
+safe to re-release. Note: I used Perl to apply the patch on the command line so 
+that it is in principle possible for you to follow along with what I am doing 
+character-for-character, but you can just open the file and edit it, or use your 
+favorite alternative to Perl to make the same inline edit. If you don't have Perl
+installed on your system and aren't sure what to do, you can always just fall back 
+on opening the file and editing it.
+
+If only it were so easy to fix bugs! But what now, how do we continue where we 
+were? Easy, just check our working branch back out and get to work:
+
+---------------
+git checkout baz_alpha
+echo 'this completes feature alpha' >> baz.txt
+git add baz.txt
+git commit -m "Add feature alpha to baz."
+---------------
+
+Notice that when we checked out +baz_alpha+, that +bar.txt+ had the bug in it 
+again. Presumably, this was a subtle bug that wasn't affecting the functioning 
+of our new feature, so we just finished up and committed our work. If we _had_
+decided we needed the bug fix before we kept going, we could have executed 
+`git merge master` immediately after checking out +baz_alpha+. This would have 
+pulled our patch into our working branch. 
+
+Finally, we can bring our finished feature back into the main project with:
+
+---------------
+git checkout master
+git merge baz_alpha
+---------------
+
+This gives us everything - the patch and the new feature! This ability to interrupt
+work is very powerful because it allows you to change topics quickly and never 
+lose your progress. We'll explore this theme a bit more in the next lesson.
+
+
 Command Summary
 ~~~~~~~~~~~~~~~
 [[summary-007]]
@@ -15,16 +83,16 @@ Then, we would enter:
 echo 'this is a new bug' >> bar.txt
 git commit -a -m "Add a new feature to bar.txt"
 git checkout -b baz_alpha
-echo 'this is feature alpha' > baz.txt
+echo 'this is incomplete feature alpha' > baz.txt
 git add baz.txt
-git commit -m "Add feature alpha to baz."
+git commit -m "Add incomplete feature alpha to baz."
 git checkout master
 perl -p -i -e 's/bug/feature/g' bar.txt
 git commit -a -m "Fix a bug in bar."
 git checkout baz_alpha
-echo 'this is feature alpha prime' >> baz.txt
+echo 'this completes feature alpha' >> baz.txt
 git add baz.txt
-git commit -m "Add feature alpha prime to baz."
+git commit -m "Add feature alpha to baz."
 git checkout master
 git merge baz_alpha
 -----------------
