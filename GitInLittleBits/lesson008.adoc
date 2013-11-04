@@ -14,4 +14,22 @@ What have we done, and how would we reproduce our repository so far?
 We would first follow the summary from the previous section <<summary-007>>.
 Then, we would enter:
 
+---------------------
+echo 'this is another bug' >> bar.txt
+git commit -a -m "Add another feature to bar.txt"
+echo 'this is incomplete feature beta' >> baz.txt
+git stash save "working on feature beta"
+git stash show
+perl -p -i -e 's/bug/feature/g' bar.txt
+git commit -a -m "Fix another bug in bar."
+git stash pop
+git stash show
+echo 'this is completes feature beta' >> baz.txt
+git add baz.txt
+git commit -m "Add feature alpha to baz."
+---------------------
+
+
+
+
 
