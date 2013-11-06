@@ -4,7 +4,118 @@ Lesson 8 - More on Handling Interrupts: Stashes
 [[lesson-008]]
 
 When working on complicated projects, we have to interrupt work much more often
-than we would like.
+than we would like. Git has multiple tools to make these situations manageable. 
+
+Suppose we're working on our project on the main branch, either because we forgot 
+to start a new feature branch or perhaps because we anticipate producing a simple
+changeset. However, as is often the case, we find the project involves more than 
+we thought it might up front and we end up in a situation where we need to change 
+our focus quickly to deal with a problem.
+
+First, let's add a new feature to our project:
+
+--------------
+echo 'this is another bug' >> bar.txt
+git commit -m "Add another feature to bar.txt" bar.txt
+--------------
+
+Note two things. First, yes, oops, another bug made it into the master branch. 
+(This project could really benefit from a testing and review process it seems.)
+Second, we made a commit slightly differently than we have before. If you specify
+the name of the file, you can combine the staging and commiting into one step. 
+It is just as if we had typed:
+
+--------------
+git commit -a -m "Add another feature to bar.txt" 
+--------------
+
+The `-a` flag is especially useful if you have a number of files you'd like to 
+stage and commit at once, but by specifying the filename, we can combine staging
+and committing with more precision (for example, if there are other files that 
+we don't want to stage or commit, etc.).
+
+Now, suppose we keep on working (on the master branch no less!) having pushed this 
+version of the project out into the world:
+
+---------------
+echo 'this is incomplete feature beta' >> baz.txt
+---------------
+
+Whew! That was a lot of work (bear with me)! All of a sudden, we now get the word 
+that we released yet another bug into the world with our last release. What 
+do we do? We have several options. We can create a new branch on the fly, 
+check it out, commit our changes, then check out +master+ again, apply the 
+patch, and then re-check out our new branch. That sounds like a lot of steps.
+They will go quickly, and sometimes adding a new branch like that is the 
+right thing to do, but we _do_ have another option. We chan ``stash'' our work.
+This basically means putting our changes into a special zone in Git that (sort 
+of) lives outside of the regular tracking mechanisms.
+
+------------
+$ git stash save "working on feature beta"
+Saved working directory and index state On master: working on feature beta
+HEAD is now at df00eb5 Add another feature to bar.txt
+------------
+
+If we look at +baz.txt+ now, we don't see any sign of our most recent changes.
+What is in the stash? Well, we can ask Git to show us:
+
+------------
+$ git stash show
+ baz.txt | 1 +
+ 1 file changed, 1 insertion(+)
+------------
+
+So Git has a record of the one change to +baz.txt+ we made. Great! Now let's apply
+our patch:
+
+---------------
+perl -p -i -e 's/bug/feature/g' bar.txt
+git commit -a -m "Fix another bug in bar."
+---------------
+
+There, now we can release a new stable version of our project. How do we get back
+to where we were before we were interrupted? We ask Git to ``pop'' the stash. 
+This nomenclature is suggestive for a reason. You can have a whole stack of 
+stashes and be pushing new changes on, popping them back off, and so on. We'll
+get into that later, but you won't often do it in practice.
+
+-------------
+$ git stash pop
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#modified:   baz.txt
+#
+no chan ges added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (8da1a87004dadadfce2592b89a1f6f957a94973f)
+-------------
+
+If we look at +bar.txt+, it still has our bug fix, and if we look at +baz.txt+, 
+we can see our incomplete work. What if we had been working on +bar.txt+ instead?
+Well, try it real quick and see for yourself!
+
+Also, note the last comment when we popped about ``dropped refs.'' What is that 
+all about? After the pop, Git stopped tracking those changes. You can get 
+fancy and keep the changes in the stash _and_ get them back out, but we'll save 
+that for later. For now, just note that if you ask Git to show you the stash,
+you won't see your changes anymore:
+
+-----------------
+$ git stash show
+No stash found.
+-----------------
+
+Okay, let's finish our work on ``feature beta'' and move on:
+
+--------------
+echo 'this is completes feature beta' >> baz.txt
+git add baz.txt
+git commit -m "Add feature alpha to baz."
+--------------
+
 
 Command Summary
 ~~~~~~~~~~~~~~~
@@ -16,14 +127,12 @@ Then, we would enter:
 
 ---------------------
 echo 'this is another bug' >> bar.txt
-git commit -a -m "Add another feature to bar.txt"
+git commit -m "Add another feature to bar.txt" bar.txt
 echo 'this is incomplete feature beta' >> baz.txt
 git stash save "working on feature beta"
-git stash show
 perl -p -i -e 's/bug/feature/g' bar.txt
 git commit -a -m "Fix another bug in bar."
 git stash pop
-git stash show
 echo 'this is completes feature beta' >> baz.txt
 git add baz.txt
 git commit -m "Add feature alpha to baz."
