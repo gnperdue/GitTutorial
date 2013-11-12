@@ -1,5 +1,4 @@
 *.html
-*.sh
 
 # Ignore DocBook intermediate xml.
 *.xml
@@ -9,4 +8,7 @@
 
 # Ignore my notes file (mostly gibberish, ha).
 gilb_asciidoc_notes.txt
+
+# Ignore the work directories.
+GitInLittleBitsWork*
 
