@@ -103,6 +103,18 @@ echo 'this is completes feature beta' >> baz.txt
 git add baz.txt
 git commit -m "Add feature alpha to baz."
 
+# Lesson 9
+# More on adding to a repository.
+#  What is committed is the version in the index, not the version on disk.
+#  Add multiple files at once;
+#  Add directories;
+#  Unstage accidental adds.
+
+# Lesson 10
+# Getting old stuff back.
+#  Deleted stuff;
+#  Old versions.
+
 # Lesson XX
 # GitHub 1 
 # First, go to github.com. Second, click on my Repositories, and then click on 
