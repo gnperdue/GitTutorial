@@ -148,6 +148,9 @@ git commit -m "Add feature alpha to baz."
 # remote: Total 3 (delta 0), reused 3 (delta 0)
 # Unpacking objects: 100% (3/3), done.
 # Checking connectivity... done
+# 
+# Another good way to do this is go to github.com and create a Repository. Then,
+# check it out and add content afterwards.
 
 
 
