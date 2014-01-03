@@ -3,7 +3,22 @@ Lesson 1 - Create a Repository
 ------------------------------
 [[lesson-001]]
 
-We will assume a Unix/Linux environment for now.
+We will assume a Unix/Linux environment through these lessons. It is a bit impractical
+to mirror all of the instructions for a Windows machine also, but perhaps in the future,
+we'll update the commands log to include Windows examples.
+
+To begin, let's make our very first repository. Here and throughout, the demo text
+will include a leading `$` command prompt. This is partially to encourage you, the 
+reader, to _type_ the examples rather than copy and paste them. At the end of each 
+lesson though, you'll find a block of commands that reproduce the work we do in the
+lesson that is formatted correctly for a simple copy and paste. You might like to build
+up a script as you go along that replicates the state of your repositories so you 
+can quickly recreate any state in the book for experimentation.
+
+For our first demonstration, we're going to make a new repository. To keep the text
+compact, I'll bundle commands onto one line sometimes in a way that may not seem 
+totally natural - don't feel like you need to retype everything in exactly the same 
+way.
 
 ----------------------------------------------
 $ cd $HOME/tmp; mkdir scratch; cd scratch
@@ -43,7 +58,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 ----------------------------------------------
 
 We haven't committed anything yet, so we see the ``Initial commit'' message. Also 
-note that we have ``untracked files.'' git will only store the files you 
+note that we have ``untracked files.'' Git will only store the files you 
 explicitly tell it to, and has flexible tools for helping you to ignore files you 
 never want to commit (compiled binaries and libraries, for example).
 
@@ -65,8 +80,13 @@ $ git status
 #
 ----------------------------------------------
 Notice that ``adding'' the file did not actually commit to the repository. We 
-simply told git to track the file. Next, execute `git commit` and we will see 
-this message:
+simply told Git to track the file. 
+This is an important part of the Git philosophy - we control access to the repository
+and the content in it in separate steps. If you're used to a version control system
+that doesn't subscribe to this approach, it can feel a bit awkward at first, but 
+you'll see that it is useful to be able to separate those steps (and Git has ways of 
+merging those steps if you'd like to).
+Next, execute `git commit` and we will see this message:
 
 ----------------------------------------------
 
@@ -83,15 +103,15 @@ this message:
 # new file:   foo.txt
 #
 ----------------------------------------------
-We have an opportunity to enter a message here logging the commit. git actually 
+We have an opportunity to enter a message here logging the commit. Git actually 
 won't let you commit without entering a log message. It is a good idea to always 
 leave a concise, clear message. We'll see over the course of these lessons that 
-git strongly encourages a model of very frequent commits. You'll have the ability 
+Git strongly encourages a model of very frequent commits. You'll have the ability 
 later to edit and compress your commits, so you don't need to worry about a 
 cluttered commit history.
 
 For now, type in something simple like: ``First commit of foobar.'' The default 
-editor is vim. If you don't know vim, don't worry, we'll explain how to change the 
+editor is Vim. If you don't know Vim, don't worry, we'll explain how to change the 
 default editor in the next lesson. For now, just press ``i'' to enter vim's 
 insert mode, type in your message, and then press the ESC key and follow it 
 with ``:wq''.
@@ -129,7 +149,7 @@ repository, so if you work in one area for example, and then check the
 repository somewhere else, the two repositories will agree on the log but not
 the reflog.
 
-Even these simple commands are enough to get started with git. You can create a
+Even these simple commands are enough to get started with Git. You can create a
 repository and use it to save incrememntal changes to your work. We don't know 
 how to recover changes or how to replicate the repository on a remote server 
 yet, but we'll get to that. In the meantime, you should practice these commands
