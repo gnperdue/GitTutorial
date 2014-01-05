@@ -24,11 +24,12 @@ e346d22 HEAD@{0}: commit: Added some more content to bar.txt.
 
 We cheated and used a short-hand here to commit: we used the ``-a'' and ``-m'' 
 flags. You can read about them in depth with `git help commit`. It is a good idea
-to run that command now, but I'll summarize quickly by saying that ``-a'' tells 
+to run the help command now, but I'll summarize quickly by saying that ``-a'' tells 
 Git to both _stage_ and _commit_ all modified files and ``-m'' allows you to 
 append a log message without going into the interactive message window. 
 Personally, I really like to see that window so I know what I am changing and 
-what is going on, but I'll use the ``-m'' flag in this tutorial for brevity 
+what is going on, and so I don't often use the ``-m'' flag. 
+But to make these commands copy and pasteable, I'll use the ``-m'' flag in this tutorial 
 sometimes.
 
 But wait, what was I just talking about, with ``staging''? Committing a change
@@ -137,7 +138,7 @@ Use '--' to separate paths from revisions, like this:
 'git <command> [<revision>...] -- [<file>...]'
 ----------------
 
-Usually, I just copy the digits shown from a `git reflog` command.
+Usually, I just copy the digits shown by a `git reflog` command.
 
 One important note (that isn't apparent from what we've looked at so far), is 
 each hash refers to the entire commit - this will often be more than one file 

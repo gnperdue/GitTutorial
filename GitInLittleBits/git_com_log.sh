@@ -152,7 +152,9 @@ git commit -m "Add feature alpha to baz."
 # Another good way to do this is go to github.com and create a Repository. Then,
 # check it out and add content afterwards.
 
-
+# Lesson XX
+# More on .gitignore - add an ignore in subdirectories to show the top->down 
+# behavior.
 
 # Lesson XX
 # Submodules

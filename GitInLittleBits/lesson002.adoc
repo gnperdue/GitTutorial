@@ -3,7 +3,7 @@ Lesson 2 - Personalize Your Configuration
 -----------------------------------------
 [[lesson-002]]
 
-Let's start to configure git so our name appears correctly in commit messages
+Let's start to configure Git so our name appears correctly in commit messages
 and so we can get the defaults we would like (editors, for example). Obviously,
 use your real name and email for the examples below (and +emacs+ or +nano+ or 
 whatever your preferred editor is for the editor):
@@ -32,7 +32,7 @@ to skim quickly.
 
 The second creates a global ``ignore'' command. When Git looks for untracked 
 files, it first checks for +.gitignore+ files that provide anti-patterns, or, 
-in other words, patterns for files Git should completely ignore. Git looks in the 
+patterns for files Git should completely ignore. Git looks in the 
 top level directory of a project and then down the directory chain to whereever
 a file might be found. There can be a different copy of +.gitignore+ in each 
 directory, and the copies in deeper directories override the copies above them.
