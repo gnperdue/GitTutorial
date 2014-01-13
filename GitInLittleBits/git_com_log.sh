@@ -26,6 +26,9 @@ git show --format="%ci" HEAD
 # Exploring hashes...
 echo 'even more text' >> bar.txt
 git commit -a -m "Added some more content to bar.txt."
+#
+# Introduce `git commit <filename>` here? Currently appear to do this in 
+# or about Lesson 8.
 
 # Lesson 4
 # Retrieving a changeset
