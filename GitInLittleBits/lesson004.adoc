@@ -40,11 +40,6 @@ e346d22 HEAD@{3}: commit: Added some more content to bar.txt.
 8f4251f HEAD@{4}: commit (initial): First commit of foobar.
 --------------------
 
-We did something new here, we suppled the `-a` flag to `git commit`. This flag
-tells Git to _stage all changes_ and then make the commit. It is useful shortcut
-when you've only made one small changeset and you know you want it all staged 
-together. 
-
 Now, suppose we decide our experimental feature is not a success. How do we 
 get back to where we were? Note that the approach we're about to look at is
 not exactly idomatic Git - the preferred model for adding new features is to use
@@ -84,8 +79,9 @@ e346d22 HEAD@{5}: commit: Added some more content to bar.txt.
 ---------------------
 
 Here we used a shortcut. You could have also given the hash as your commit
-identifier, and said `git checkout 0fb1e51` (as was the case here - you would 
-need to use the correct hash for your own case). But typing that hash out or 
+identifier, and said `git checkout 0fb1e51`, as was the case here. You would 
+need to use the correct hash for your own case, and since I can't predict your 
+hash, I used the sort of cryptic looking `HEAD^`. Besides, typing that hash out or 
 copying it is a bit annoying and error prone. The caret symbol, +^+, tells Git
 to check out the commit before +HEAD+. One thing that is cool is you can chain
 the carets and execute commands like `git checkout HEAD^^` to go back two 
