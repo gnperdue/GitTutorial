@@ -25,19 +25,27 @@ e346d22 HEAD@{0}: commit: Added some more content to bar.txt.
 We cheated and used a short-hand here to commit: we used the ``-a'' and ``-m'' 
 flags. You can read about them in depth with `git help commit`. It is a good idea
 to run the help command now, but I'll summarize quickly by saying that ``-a'' tells 
-Git to both _stage_ and _commit_ all modified files and ``-m'' allows you to 
+Git to both _stage_ and _commit_ all modified files.
+Recall in <<lesson-001>> that we first ran `git add` and then ran `git commit` to
+stage the file and then commit it in two steps. 
+
+What is ``staging''? Committing a change is a two-step process in Git. First you ``stage'' 
+all of your commits. Then, when you execute `git commit`, only the staged changes are 
+made. Any unstaged changes are not committed. This process might seem a bit awkward at 
+first, but it allows you to craft the commit history and make all of your commits 
+meaningful atomic units.
+
+The ``-a'' flag lets us compress that  process into one step if we choose. I find for 
+very simple changes that using ``-a'' or another shortcut makes sense, but when crafting 
+a very complicated set of changes, I find it convenient to carefully build up the staging 
+area before committing.
+
+The ``-m'' flag allows you to 
 append a log message without going into the interactive message window. 
 Personally, I really like to see that window so I know what I am changing and 
 what is going on, and so I don't often use the ``-m'' flag. 
 But to make these commands copy and pasteable, I'll use the ``-m'' flag in this tutorial 
 sometimes.
-
-But wait, what was I just talking about, with ``staging''? Committing a change
-is a two-step process in Git. First you stage all of your commits. Then, when 
-you execute `git commit`, only the staged changes are made. Any unstaged changes
-are not committed. This process might seem a bit awkward at first, but it allows
-you to craft the commit history and make all of your commits meaningful atomic
-units.
 
 Let's look at the output of `git reflog` from above once again and also at the 
 output from `git log`:
