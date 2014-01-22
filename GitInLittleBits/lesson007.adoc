@@ -12,8 +12,8 @@ git commit -a -m "Add a new feature to bar.txt"
 ------------------
 
 Okay, now that we have a shiny new version of our project, let's release it 
-to the world and start on a new feature, but since we think this might be a 
-slightly more complicated feature, let's be sure to put it on a new branch:
+to the world. Now, we'll start on a new feature, but since we think this might be 
+slightly more complicated, let's be sure to put it on a new branch:
 
 ----------------
 git checkout -b baz_alpha
@@ -37,10 +37,10 @@ git commit -a -m "Fix a bug in bar."
 We can just check out the +master+ branch, apply a patch, and commit it. Now it is
 safe to re-release. Note: I used Perl to apply the patch on the command line so 
 that it is in principle possible for you to follow along with what I am doing 
-character-for-character, but you can just open the file and edit it, or use your 
-favorite alternative to Perl to make the same inline edit. If you don't have Perl
-installed on your system and aren't sure what to do, you can always just fall back 
-on opening the file and editing it.
+character-for-character by copying and pasting, but you can just open the file and edit 
+it, or use your favorite alternative to Perl to make the same inline edit. If you don't 
+have Perl installed on your system and aren't sure what to do, you can always just fall 
+back on opening the file and editing it.
 
 If only it were so easy to fix bugs! But what now, how do we continue where we 
 were? Easy, just check our working branch back out and get to work:
