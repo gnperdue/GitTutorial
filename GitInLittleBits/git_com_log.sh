@@ -47,6 +47,8 @@ git commit -a -m "Added yet another stable new feature"
 
 # Lesson 5
 # Fixing our detached head
+# TODO: This lesson is a bit confusing and the fix is not explained well,
+# more research and work is needed...
 git branch feature_alpha
 git checkout feature_alpha
 git show-graph
