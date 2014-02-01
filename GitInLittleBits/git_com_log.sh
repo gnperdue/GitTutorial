@@ -121,6 +121,9 @@ git commit -m "Add feature alpha to baz."
 #  Old versions.
 
 # Lesson XX
+# Distributed vs. Centralized version control and the philosophy thereof.
+
+# Lesson XX
 # GitHub 1 
 # First, go to github.com. Second, click on my Repositories, and then click on 
 # New. Fill out basic description, decline to create a Readme or an ignore 
