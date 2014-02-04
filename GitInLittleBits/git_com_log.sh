@@ -161,6 +161,13 @@ git commit -m "Add feature alpha to baz."
 # check it out and add content afterwards.
 
 # Lesson XX
+# More on remote repositories:
+# - How to examine.
+# - How to compare.
+# --dry-run
+# - How to list remotes, and point at a different remote.
+
+# Lesson XX
 # More on .gitignore - add an ignore in subdirectories to show the top->down 
 # behavior.
 
