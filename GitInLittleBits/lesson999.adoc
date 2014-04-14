@@ -22,3 +22,5 @@ Here though, are some of my favorite articles and books:
 .Git Resources: Communities
 . http://www.github.com
 
+.More on GitHub:
+. https://github.com/tiimgreen/github-cheat-sheet
